@@ -19,6 +19,9 @@ module.exports = {
       bolder:'700'
     },
     extend: {
+      screens:{
+        Phone:{'max':'576px'}
+      },
       keyframes: {
         fadeIn: {
           '0%': { opacity: 0 },

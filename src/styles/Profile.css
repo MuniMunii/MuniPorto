@@ -44,7 +44,6 @@ html, body {
 }
 .link-list-span{
     color: var(--LightPink);
-    font-weight: bolder;
     text-decoration: none;
 }
 .link-list-span:hover{
@@ -68,4 +67,7 @@ html, body {
 }
 .float-right{
     margin-left: auto;
+}
+.myread-links:hover{
+    border-bottom: solid 2px var(--LightPink);
 }
