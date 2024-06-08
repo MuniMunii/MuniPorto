@@ -1,0 +1,70 @@
+@import './root.css';
+.navbar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.navbar-list{
+    display: flex;
+    flex-direction: column;
+}
+.navbar-class{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 0 0.625em;
+    height: 100%;
+    width: 150px;
+}
+.nav-link{
+    text-wrap: nowrap;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    margin: 5px 0;
+    color: var(--LightPink);
+    text-decoration: none;
+    background-image: linear-gradient(90deg,#ffe5ec,#fb6f92);
+    background-repeat: no-repeat;
+    background-size: 0 3px;
+    background-position: left bottom;
+    transition: background-size 0.3s ease;
+}
+.menu-bar{
+    font-size: 20px;
+    border: none;
+    background-color: none;
+    margin: 0;
+}
+.nav-link:hover{
+    background-size: 100% 3px;
+}
+.nav-link.hide{
+    transition: all 0.3s ease;
+}
+.hide{
+    visibility: hidden;
+}
+/* home */
+
+@media screen and (max-width:700px) {
+    .hide{
+        display: block;
+        visibility: hidden;
+    }
+    .navbar-class{
+        margin: 0 auto;
+        height: auto;
+        flex-direction: column;
+    }
+    .navbar-list a{
+        margin: 0 5px;
+    }
+    .navbar-list{
+        flex-direction: row;
+        display: flex;
+    }
+}

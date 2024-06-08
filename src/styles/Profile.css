@@ -1,0 +1,71 @@
+/* ABout PAge */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    height: 100vh;
+  }
+.about{
+    width: 75%;
+}
+.sticky{
+    position: fixed;
+}
+.timeline{
+    list-style: none;
+    position: relative;
+}
+.timeline::before{
+    content: "";
+    background: grey;
+    position: absolute;
+    left: 0;
+    width: 1px;
+    top: 9px;
+    height: 100%;
+}
+.timeline li::before{
+    content: "";
+    background: grey;
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid var(--MedPink);
+    position: absolute;
+    left: -8px;
+    width: 15px;
+    margin-top: 9px;
+    height: 15px;
+}
+.list-title{
+    font-size: 1.4rem;
+}
+.link-list-span{
+    color: var(--LightPink);
+    font-weight: bolder;
+    text-decoration: none;
+}
+.link-list-span:hover{
+    text-decoration: underline;
+}
+.title-comp{
+    display: flex;
+    align-items: center;
+}
+.title-comp .list-title{
+    margin: 0;
+}
+.logo-link{
+    color: black;
+    font-size: 1.5rem;
+    transition: 0.3s ease;
+}
+.logo-link:hover{
+    color: white;
+    
+}
+.float-right{
+    margin-left: auto;
+}

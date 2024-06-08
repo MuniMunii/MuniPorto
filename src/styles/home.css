@@ -1,0 +1,50 @@
+.about{
+    align-self: flex-start;
+}
+.hello{
+    font-size: 4.375rem;
+}
+.profile h1{
+    margin: 5px 0;
+}
+.profile ,.about{
+    margin: 0 auto;
+    font-family:"Montserrat", sans-serif;
+    width: 85%;
+}
+
+.link-about{
+    display: flex;
+    text-decoration: none;
+    color: var(--LightPink);
+    background-image: linear-gradient(90deg,#ffe5ec,#fb6f92);
+    background-repeat: no-repeat;
+    background-size: 0 3px;
+    background-position: center bottom;
+    transition: background-size 0.3s ease;
+}
+.link-about:hover{
+background-size: 100% 3px;
+}
+.arrow-right{
+    margin-left: 1rem;
+    animation: forward;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.menu-logo{
+    cursor: pointer;
+}
+.home-content{
+    display: flex;
+    align-items: center;
+}
+@keyframes forward {
+    0%{
+        margin-left: 1rem;
+    }
+    100%{
+        margin-left: 2rem;
+    }
+}
