@@ -5,11 +5,10 @@ import "../styles/Navbar.css";
 import "../lib/font-awesome-4.7.0/css/font-awesome.min.css";
 import LogoWeb from "../assets/images/Logo-Muni-Porto.png";
 class NavBar extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      showMenu: false,
-      isMobile: false,
+      lightMode: false
     };
     this.HandleResize = this.HandleResize.bind(this);
     this.ShowMenuBar = this.ShowMenuBar.bind(this);
@@ -102,13 +101,14 @@ class NavBar extends React.Component {
     });
   }
   ShowNavList() {
-    const NavlinkElements = document.querySelectorAll(".nav-link");
+    const NavlinkElements = document.querySelectorAll(".toggle-hide");
     NavlinkElements.forEach((element) => {
       element.classList.toggle("hidden");
     });
   }
   render() {
     const { showMenu, isMobile } = this.props;
+    const { lightMode } = this.state;
     return (
       <>
         <div className="flex justify-center align-middle">
@@ -124,24 +124,52 @@ class NavBar extends React.Component {
             </p>
             <div
               className={` ${
-                showMenu ? "flex flex-col fixed justify-self-center" : "navbar-list row"
+                showMenu
+                  ? "flex flex-col fixed justify-self-center px-3"
+                  : "navbar-list relative"
               }`}
             >
+              <button className={`toggle-hide mr-4 ${showMenu?'':'hidden'}`}>
+              {!lightMode && (
+                <svg width="30" height="30">
+                <circle cx="15" cy="15" r="6" fill="currentColor" />
+              
+                <line
+                  id="ray"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  x1="15"
+                  y1="1"
+                  x2="15"
+                  y2="4"
+                ></line>
+              
+                <use href="#ray" transform="rotate(45 15 15)" />
+                <use href="#ray" transform="rotate(90 15 15)" />
+                <use href="#ray" transform="rotate(135 15 15)" />
+                <use href="#ray" transform="rotate(180 15 15)" />
+                <use href="#ray" transform="rotate(225 15 15)" />
+                <use href="#ray" transform="rotate(270 15 15)" />
+                <use href="#ray" transform="rotate(315 15 15)" />
+              </svg>
+              )}
+            </button>
               <NavLink
                 to="/"
-                className={`nav-link ${showMenu ? "" : "hidden"}`}
+                className={`toggle-hide nav-link w-fit h-fit ${showMenu ? "" : "hidden"}`}
               >
                 Home
               </NavLink>
               <NavLink
                 to="/profile"
-                className={`nav-link ${showMenu ? "" : "hidden"}`}
+                className={`toggle-hide nav-link w-fit h-fit ${showMenu ? "" : "hidden"}`}
               >
                 Profile
               </NavLink>
               <NavLink
                 to="/portofolio"
-                className={`nav-link ${showMenu ? "" : "hidden"}`}
+                className={`toggle-hide nav-link w-fit h-fit ${showMenu ? "" : "hidden"}`}
               >
                 Portfolio
               </NavLink>
