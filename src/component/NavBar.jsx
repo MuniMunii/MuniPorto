@@ -4,11 +4,12 @@ import { NavLink, Route, Routes } from "react-router-dom";
 import "../styles/Navbar.css";
 import "../lib/font-awesome-4.7.0/css/font-awesome.min.css";
 import LogoWeb from "../assets/images/Logo-Muni-Porto.png";
+import { setThemes } from "../utils/themes";
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      lightMode: false
+      lightMode:  localStorage.getItem('theme') === 'theme-light'
     };
     this.HandleResize = this.HandleResize.bind(this);
     this.ShowMenuBar = this.ShowMenuBar.bind(this);
@@ -100,6 +101,15 @@ class NavBar extends React.Component {
       return { showMenu: !prevstate.showMenu };
     });
   }
+  changeThemeMode(){
+    if(localStorage.getItem('theme')==='theme-dark'){
+      setThemes('theme-light')
+      this.setState({lightMode:true})
+    }else{
+      setThemes('theme-dark')
+      setThemes({lightMode:false})
+    }
+  }
   ShowNavList() {
     const NavlinkElements = document.querySelectorAll(".toggle-hide");
     NavlinkElements.forEach((element) => {
@@ -129,7 +139,7 @@ class NavBar extends React.Component {
                   : "navbar-list relative"
               }`}
             >
-              <button className={`toggle-hide mr-4 ${showMenu?'':'hidden'}`}>
+              <button className={`toggle-hide mr-4 ${showMenu?'':'hidden'}`} onClick={this.changeThemeMode()}>
               {!lightMode && (
                 <svg width="30" height="30">
                 <circle cx="15" cy="15" r="6" fill="currentColor" />
