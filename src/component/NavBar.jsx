@@ -9,11 +9,13 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      lightMode:  localStorage.getItem('theme') === 'theme-light'
+      // default
+      lightMode:false
     };
     this.HandleResize = this.HandleResize.bind(this);
     this.ShowMenuBar = this.ShowMenuBar.bind(this);
     this.ShowNavList = this.ShowNavList.bind(this);
+    this.changeThemeMode = this.changeThemeMode.bind(this); 
   }
   componentDidMount() {
     window.addEventListener("resize", this.HandleResize);
@@ -102,12 +104,14 @@ class NavBar extends React.Component {
     });
   }
   changeThemeMode(){
-    if(localStorage.getItem('theme')==='theme-dark'){
-      setThemes('theme-light')
+    if(localStorage.getItem('theme')==='dark-theme'){
+      setThemes('light-theme')
       this.setState({lightMode:true})
+      console.log("light-theme");
     }else{
-      setThemes('theme-dark')
-      setThemes({lightMode:false})
+      setThemes('dark-theme')
+      this.setState({lightMode:false})
+      console.log("dark-theme");
     }
   }
   ShowNavList() {
@@ -119,6 +123,41 @@ class NavBar extends React.Component {
   render() {
     const { showMenu, isMobile } = this.props;
     const { lightMode } = this.state;
+    function ThemeLogo(){
+      return(
+        <><svg width="30" height="30">
+      <circle cx="15" cy="15" r="6" fill="currentColor" />
+      <line
+        id="ray"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        x1="15"
+        y1="1"
+        x2="15"
+        y2="4"
+      ></line>
+    
+      <use href="#ray" transform="rotate(45 15 15)" />
+      <use href="#ray" transform="rotate(90 15 15)" />
+      <use href="#ray" transform="rotate(135 15 15)" />
+      <use href="#ray" transform="rotate(180 15 15)" />
+      <use href="#ray" transform="rotate(225 15 15)" />
+      <use href="#ray" transform="rotate(270 15 15)" />
+      <use href="#ray" transform="rotate(315 15 15)" />
+    </svg>
+    <svg width="30" height="30" id="dark-icon">
+        <path
+          fill="currentColor"
+          d="
+          M 23, 5
+          A 12 12 0 1 0 23, 25
+          A 12 12 0 0 1 23, 5"
+        />
+      </svg></>
+      )
+      
+    }
     return (
       <>
         <div className="flex justify-center align-middle">
@@ -139,31 +178,8 @@ class NavBar extends React.Component {
                   : "navbar-list relative"
               }`}
             >
-              <button className={`toggle-hide mr-4 ${showMenu?'':'hidden'}`} onClick={this.changeThemeMode()}>
-              {!lightMode && (
-                <svg width="30" height="30">
-                <circle cx="15" cy="15" r="6" fill="currentColor" />
-              
-                <line
-                  id="ray"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  x1="15"
-                  y1="1"
-                  x2="15"
-                  y2="4"
-                ></line>
-              
-                <use href="#ray" transform="rotate(45 15 15)" />
-                <use href="#ray" transform="rotate(90 15 15)" />
-                <use href="#ray" transform="rotate(135 15 15)" />
-                <use href="#ray" transform="rotate(180 15 15)" />
-                <use href="#ray" transform="rotate(225 15 15)" />
-                <use href="#ray" transform="rotate(270 15 15)" />
-                <use href="#ray" transform="rotate(315 15 15)" />
-              </svg>
-              )}
+              <button className={`toggle-hide mr-4 ${showMenu?'':'hidden'}`} onClick={this.changeThemeMode}>
+              {<ThemeLogo/>}
             </button>
               <NavLink
                 to="/"

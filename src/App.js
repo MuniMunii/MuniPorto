@@ -9,16 +9,15 @@ import { keepThemes } from './utils/themes';
 import { useEffect } from 'react';
 function App() {
   useEffect(()=>{
+    keepThemes()
     console.log('useEffect is running');
   },[])
   return (
-    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
-    </Router>
   );
 }
 

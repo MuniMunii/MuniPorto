@@ -62,7 +62,7 @@ class Home extends React.Component {
                   See More About Me
                 </NavLink>
                 <svg
-                  class="arrow-right"
+                  className="arrow-right"
                   width="24"
                   height="24"
                   xmlns="http://www.w3.org/2000/svg"

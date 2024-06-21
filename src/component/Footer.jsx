@@ -13,17 +13,17 @@ class Footer extends React.Component {
         <div className={`Display ${isMobile?'absolute-logo-list':'flex flex-row'} w-fit`}>
           <div className="logo-div">
             <a href="#" className="logo-link">
-              <i class="fa fa-instagram" aria-hidden="true"></i>
+              <i className="fa fa-instagram" aria-hidden="true"></i>
             </a>
           </div>
           <div className="logo-div">
             <a href="#" className="logo-link">
-              <i class="fa fa-linkedin" aria-hidden="true"></i>
+              <i className="fa fa-linkedin" aria-hidden="true"></i>
             </a>
           </div>
           <div className="logo-div">
             <a href="#" className="logo-link">
-              <i class="fa fa-github" aria-hidden="true"></i>
+              <i className="fa fa-github" aria-hidden="true"></i>
             </a>
           </div>
         </div>

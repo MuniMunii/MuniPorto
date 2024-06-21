@@ -52,11 +52,11 @@ class Profile extends React.Component {
                     <li className="ml-5">
                       <p
                         href=""
-                        class="text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap"
+                        className="text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap"
                       >
                         2021
                       </p>
-                      <p class="list-text animate-fadeIn">
+                      <p className="list-text animate-fadeIn">
                         This was my first year when i learning how to code and
                         interested in programming, By the way i intrested on
                         programming because my brother recommended me to join
@@ -64,7 +64,7 @@ class Profile extends React.Component {
                         <span>
                           <a
                             href="https://www.dicoding.com/academies/120-memulai-pemrograman-dengan-c"
-                            class="link-list-span font-normal"
+                            className="link-list-span font-normal"
                           >
                             Here
                           </a>
@@ -81,22 +81,22 @@ class Profile extends React.Component {
                       </p>
                     </li>
                     <li className="ml-5 mt-3">
-                      <div class="title-comp">
+                      <div className="title-comp">
                         <p
                           href=""
-                          class="text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap"
+                          className="text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap"
                         >
                           2022
                         </p>
                         <a
                           href="https://github.com/MuniMunii?tab=overview&from=2022-12-01&to=2022-12-31"
                           alt="My-Github Muni-Munii"
-                          class="float-right logo-link"
+                          className="float-right logo-link"
                         >
-                          <i class="fa fa-github"></i>
+                          <i className="fa fa-github"></i>
                         </a>
                       </div>
-                      <p class="list-text animate-fadeIn">
+                      <p className="list-text animate-fadeIn">
                         In this second year, I graduated from Highschool,
                         because I am interested in programming, so i took my
                         University degree with an IT Background (Information
@@ -113,11 +113,11 @@ class Profile extends React.Component {
                     <li className="ml-5 mt-3">
                       <p
                         href=""
-                        class="text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap"
+                        className="text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap"
                       >
                         2023
                       </p>
-                      <p class="list-text">
+                      <p className="list-text">
                         Second year in College, my School started teaching me
                         about Web Development with PHP and Code Igniter
                         Framework i was excited at first because i really like
@@ -132,11 +132,11 @@ class Profile extends React.Component {
                     <li className="ml-5 mt-3">
                       <p
                         href=""
-                        class="text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap"
+                        className="text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap"
                       >
                         2024
                       </p>
-                      <p class="list-text">
+                      <p className="list-text">
                         Now Third year in College my school is now focused on
                         teaching about business more rather than programming but
                         i still learning about that and in this year too i
@@ -146,11 +146,11 @@ class Profile extends React.Component {
                     <li className="ml-5 mt-3">
                       <p
                         href=""
-                        class="text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap"
+                        className="text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap"
                       >
                         Currently
                       </p>
-                      <p class="list-text">
+                      <p className="list-text">
                         Always learning about web deveploment,database and
                         reading whatever what i find interesting.
                       </p>
@@ -277,7 +277,7 @@ class Profile extends React.Component {
                     See More About Me
                   </NavLink>
                   <svg
-                    class="arrow-right"
+                    className="arrow-right"
                     width="24"
                     height="24"
                     xmlns="http://www.w3.org/2000/svg"
