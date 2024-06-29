@@ -16,19 +16,18 @@ class Home extends React.Component {
     super();
   }
   render() {
-    function HomeProfileComp({showMenu,isMobile,isLandscape}) {
+    function HomeProfileComp({showMenu,isMobile,isLandscape,lightMode}) {
       const landscapeValue = isLandscape ? "h-fit" : "";
-      console.log(isMobile);
       return (
         <>
           <div
-            className={`profile columns-auto mx-auto container flex items-center justify-center  ${landscapeValue}`}
+            className={`profile columns-auto mx-auto container flex items-center justify-center  ${landscapeValue} `}
           >
             {/* profile */}
-            <div className="font-sans w-wrapper mx-auto flex-col ">
+            <div className={`font-sans w-wrapper mx-auto flex-col ${lightMode?'text-DarkBlueText':''}`}>
               <h1 className="text-h1Xl font-bolder">HI.</h1>
               <h1 className="text-h1Med font-bold">I'am Ramzi.</h1>
-              <p className="">
+              <p className="font-bold">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
                 voluptas modi nobis quas enim doloribus ipsum ex eveniet sunt
                 iure? Inventore dignissimos ea deleniti nisi modi provident quas
@@ -58,7 +57,7 @@ class Home extends React.Component {
                 }}
                 className={`${showMenu ? "" : "margin-navlogo"}`}
               >
-                <NavLink to="/profile" className="link-about">
+                <NavLink to="/profile" className={`link-about ${lightMode?"dark":"light"}`}>
                   See More About Me
                 </NavLink>
                 <svg

@@ -8,6 +8,15 @@ module.exports = {
       'MedPink':'#ffb3c6',
       'DarkMossGreen':'#2f3e46',
       'RaisinBlack':'rgb(22, 25, 37)',
+      'Pink100':'#fae0e4',
+      'Pink200':'#f7cad0',
+      'Pink300':'#f9bec7',
+      'Pink400':'#fbb1bd',
+      'Pink500':'#ff99ac',
+      'Pink600':'#ff85a1',
+      'Pink700':'#ff7096',
+      'Pink800':'#ff7096',
+      'DarkBlueText':'#041325'
     },
     fontFamily:{
       sans:['Montserrat','sans-serif'],

@@ -9,13 +9,10 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // default
-      lightMode:false
     };
     this.HandleResize = this.HandleResize.bind(this);
-    this.ShowMenuBar = this.ShowMenuBar.bind(this);
     this.ShowNavList = this.ShowNavList.bind(this);
-    this.changeThemeMode = this.changeThemeMode.bind(this); 
+    this.changeThemeMode = this.changeThemeMode.bind(this);
   }
   componentDidMount() {
     window.addEventListener("resize", this.HandleResize);
@@ -98,34 +95,28 @@ class NavBar extends React.Component {
       this.setState({ showMenu: !isMobile });
     }
   }
-  ShowMenuBar() {
-    this.setState((prevstate) => {
-      return { showMenu: !prevstate.showMenu };
-    });
-  }
   changeThemeMode(){
+    const toggleChangeForBug=document.querySelector('.button-theme')
+    toggleChangeForBug.classList.toggle('hidden')
     if(localStorage.getItem('theme')==='dark-theme'){
       setThemes('light-theme')
-      this.setState({lightMode:true})
       console.log("light-theme");
     }else{
       setThemes('dark-theme')
-      this.setState({lightMode:false})
       console.log("dark-theme");
     }
   }
   ShowNavList() {
-    const NavlinkElements = document.querySelectorAll(".toggle-hide");
-    NavlinkElements.forEach((element) => {
+    const toggleHideElements = document.querySelectorAll(".toggle-hide");
+    toggleHideElements.forEach((element) => {
       element.classList.toggle("hidden");
     });
   }
   render() {
-    const { showMenu, isMobile } = this.props;
-    const { lightMode } = this.state;
-    function ThemeLogo(){
+    const { showMenu,lightMode} = this.props;
+    function DayLogo(){
       return(
-        <><svg width="30" height="30">
+        <><svg width="30" height="30" id="light-icon">
       <circle cx="15" cy="15" r="6" fill="currentColor" />
       <line
         id="ray"
@@ -146,7 +137,13 @@ class NavBar extends React.Component {
       <use href="#ray" transform="rotate(270 15 15)" />
       <use href="#ray" transform="rotate(315 15 15)" />
     </svg>
-    <svg width="30" height="30" id="dark-icon">
+</>
+      )
+    }
+    function DarkLogo(){
+      return(
+        <>
+            <svg width="30" height="30" id="dark-icon">
         <path
           fill="currentColor"
           d="
@@ -156,7 +153,6 @@ class NavBar extends React.Component {
         />
       </svg></>
       )
-      
     }
     return (
       <>
@@ -178,24 +174,24 @@ class NavBar extends React.Component {
                   : "navbar-list relative"
               }`}
             >
-              <button className={`toggle-hide mr-4 ${showMenu?'':'hidden'}`} onClick={this.changeThemeMode}>
-              {<ThemeLogo/>}
+            <button className={`button-theme toggle-hide mr-4 ${showMenu? "": "hidden"}`} onClick={this.changeThemeMode}>
+              {lightMode?<DarkLogo/> :<DayLogo/>}
             </button>
               <NavLink
                 to="/"
-                className={`toggle-hide nav-link w-fit h-fit ${showMenu ? "" : "hidden"}`}
+                className={`toggle-hide nav-link w-fit h-fit ${showMenu ? "" : "hidden"}  ${lightMode?"text-RaisinBlack dark":'light'}`}
               >
                 Home
               </NavLink>
               <NavLink
                 to="/profile"
-                className={`toggle-hide nav-link w-fit h-fit ${showMenu ? "" : "hidden"}`}
+                className={`toggle-hide nav-link w-fit h-fit ${showMenu ? "" : "hidden"}  ${lightMode?"text-RaisinBlack dark":'light'}`}
               >
                 Profile
               </NavLink>
               <NavLink
                 to="/portofolio"
-                className={`toggle-hide nav-link w-fit h-fit ${showMenu ? "" : "hidden"}`}
+                className={`toggle-hide nav-link w-fit h-fit ${showMenu ? "" : "hidden"}  ${lightMode?"text-RaisinBlack dark":'light'}`}
               >
                 Portfolio
               </NavLink>

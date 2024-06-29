@@ -1,6 +1,8 @@
 function setThemes(namethemes){
     localStorage.setItem('theme',namethemes)
     document.documentElement.className=namethemes
+    document.body.className=namethemes
+    window.dispatchEvent(new Event("storage"))
 }
 function keepThemes(){
     const theme = localStorage.getItem('theme');

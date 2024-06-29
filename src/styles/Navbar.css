@@ -25,13 +25,19 @@
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     margin: 5px 0;
-    color: var(--LightPink);
     text-decoration: none;
-    background-image: linear-gradient(90deg,#ffe5ec,#fb6f92);
     background-repeat: no-repeat;
     background-size: 0 3px;
     background-position: left bottom;
     transition: background-size 0.3s ease;
+}
+.nav-link.light{
+    background-image: linear-gradient(90deg,#ffe5ec,#fb6f92);
+    color: var(--LightPink);
+}
+.nav-link.dark{
+    background-image: linear-gradient(90deg,#557c93,#08203e);
+    color: var(--DarkBlueText);
 }
 .menu-bar{
     font-size: 20px;

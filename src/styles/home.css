@@ -16,12 +16,18 @@
 .link-about{
     display: flex;
     text-decoration: none;
-    color: var(--LightPink);
-    background-image: linear-gradient(90deg,#ffe5ec,#fb6f92);
     background-repeat: no-repeat;
     background-size: 0 3px;
     background-position: center bottom;
     transition: background-size 0.3s ease;
+}
+.link-about.light{
+    color: var(--LightPink);
+    background-image: linear-gradient(90deg,#ffe5ec,#fb6f92);
+}
+.link-about.dark{
+    color: #041325;
+    background-image: linear-gradient(90deg,#557c93,#08203e);
 }
 .link-about:hover{
 background-size: 100% 3px;

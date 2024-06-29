@@ -10,7 +10,6 @@ import { useEffect } from 'react';
 function App() {
   useEffect(()=>{
     keepThemes()
-    console.log('useEffect is running');
   },[])
   return (
       <Routes>
