@@ -96,8 +96,13 @@ class NavBar extends React.Component {
     }
   }
   changeThemeMode(){
-    const toggleChangeForBug=document.querySelector('.button-theme')
-    toggleChangeForBug.classList.toggle('hidden')
+    const { showMenu } = this.props;
+    if (!showMenu) {
+      const toggleChangeForBug = document.querySelector('.button-theme');
+      if (toggleChangeForBug) {
+        toggleChangeForBug.classList.toggle('hidden');
+      }
+    }
     if(localStorage.getItem('theme')==='dark-theme'){
       setThemes('light-theme')
       console.log("light-theme");

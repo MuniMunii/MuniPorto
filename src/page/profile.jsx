@@ -35,19 +35,19 @@ class Profile extends React.Component {
     });
   }
   render() {
-    const { showMenu, isMobile } = this.props;
-    function ProfileComp({ showMenu, isMobile }) {
+    const { showMenu, isMobile ,lightMode} = this.props;
+    function ProfileComp({ showMenu, isMobile,lightMode }) {
       return (
         <>
           <div
             className={`profile columns-auto mx-auto container flex items-center h-fit `}
           >
-            <div className="font-sans w-wrapper mx-auto flex flex-col ">
+            <div className={`font-sans w-wrapper mx-auto flex flex-col ${lightMode?'text-DarkBlueText':''}`}>
               <div className={`${isMobile ? "mx-[20px]" : "about"}`}>
-                <h1 className="text-center">ABOUT ME</h1>
+                <h1 className="text-center text-3xl">ABOUT ME</h1>
                 <div className="part1">
-                  <h2 className="mb-2">Journey</h2>
-                  <ul className="timeline">
+                  <h2 className="mb-2 text-[1.3rem]">Journey</h2>
+                  <ul className={`timeline ${lightMode?'light':'dark'}`}>
                     <li className="ml-5">
                       <p
                         href=""
@@ -63,7 +63,7 @@ class Profile extends React.Component {
                         <span>
                           <a
                             href="https://www.dicoding.com/academies/120-memulai-pemrograman-dengan-c"
-                            className="link-list-span font-normal"
+                            className={`no-underline hover:underline ${lightMode?'text-DarkBlueText':'text-LightPink'}`}
                           >
                             Here
                           </a>
@@ -157,15 +157,15 @@ class Profile extends React.Component {
                   </ul>
                 </div>
                 <div className="part2 mt-[20px]">
-                  <h2 className="mb-2">My Reads</h2>
-                  <ul className="timeline">
+                  <h2 className="mb-2 text-[1.3rem]">My Reads</h2>
+                  <ul className={`timeline ${lightMode?'light':'dark'}`}>
                     <li className="ml-5">
                       <a
                         href=""
-                        className="text-[1.4rem] myread-links font-bold  Phone:Phone:text-[1.2rem] text-wrap"
+                        className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'dark'}`}
                       >
                         HTML&CSS
-                        <span className="text-sm text-LightPink ">
+                        <span className={`text-sm ${lightMode?'text-DarkBlueText':'text-LightPink'}`}>
                           .Youtube
                         </span>
                       </a>
@@ -175,7 +175,7 @@ class Profile extends React.Component {
                         helpfull most of the time and he always have a cool idea
                         for css styling shout out to{" "}
                         <span>
-                          <a className="no-underline text-LightPink hover:underline">
+                          <a className={`no-underline hover:underline ${lightMode?'text-DarkBlueText':'text-LightPink'}`}>
                             KevinPowell.
                           </a>
                         </span>
@@ -184,10 +184,10 @@ class Profile extends React.Component {
                     <li className="ml-5 mt-3">
                       <a
                         href="https://github.com/Asabeneh/30-Days-Of-JavaScript"
-                        className="text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap"
+                        className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'dark'}`}
                       >
                         JavascriptChallenges
-                        <span className="text-sm text-LightPink">.Github</span>
+                        <span className={`text-sm ${lightMode?'text-DarkBlueText':'text-LightPink'}`}>.Github</span>
                       </a>
                       <p>
                         Now this is the fun part.This is how i learned the
@@ -195,7 +195,7 @@ class Profile extends React.Component {
                         <span>
                           <a
                             href="https://github.com/Asabeneh/30-Days-Of-JavaScript"
-                            className="no-underline text-LightPink hover:underline"
+                            className={`no-underline hover:underline ${lightMode?'text-DarkBlueText':'text-LightPink'}`}
                           >
                             Asabeneh Yetayeh
                           </a>
@@ -213,10 +213,10 @@ class Profile extends React.Component {
                     <li className="ml-5 mt-3">
                       <a
                         href="https://github.com/ryanmcdermott/clean-code-javascript"
-                        className="text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap"
+                        className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'dark'}`}
                       >
                         Writing Clean Code
-                        <span className="text-sm text-LightPink">.Github</span>
+                        <span className={`text-sm ${lightMode?'text-DarkBlueText':'text-LightPink'}`}>.Github</span>
                       </a>
                       <p>
                         This is where i learned about implemented a clean code
@@ -228,15 +228,15 @@ class Profile extends React.Component {
                   </ul>
                 </div>
                 <div className="part3 mt-[20px]">
-                  <h2>Playlist And Other</h2>
-                  <ul className="timeline">
+                  <h2 className="mb-2 text-[1.3rem]">Playlist And Other</h2>
+                  <ul className={`timeline ${lightMode?'light':'dark'}`}>
                     <li className="ml-5 mt-3">
                       <a
                         href="https://open.spotify.com/playlist/51Lsg8Y6SS9Dxk1wPLbqUO?si=7ce04b2f7b3745a6"
-                        className="text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap"
+                        className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'dark'}`}
                       >
                         Classical Music
-                        <span className="text-sm text-LightPink">.Spotify</span>
+                        <span className={`text-sm ${lightMode?'text-DarkBlueText':'text-LightPink'}`}>.Spotify</span>
                       </a>
                       <p>
                         Yeah, I really love classical music, and my favorite
@@ -246,10 +246,10 @@ class Profile extends React.Component {
                     <li className="ml-5 mt-3">
                       <a
                         href="https://open.spotify.com/playlist/2uD4h8wCG7B2vYrHYxzurQ?si=6cc4769a0a004417"
-                        className="text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap"
+                        className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'dark'}`}
                       >
                         Vocaloid
-                        <span className="text-sm text-LightPink">.Spotify</span>
+                        <span className={`text-sm ${lightMode?'text-DarkBlueText':'text-LightPink'}`}>.Spotify</span>
                       </a>
                       <p>
                         I like vocaloid too because I just saw how to make a
@@ -260,7 +260,7 @@ class Profile extends React.Component {
                       </p>
                     </li>
                     <li className="ml-5 mt-3">
-                      <a href="https://myanimelist.net/profile/Yesramji" className="text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap">MyAnimeList<span className="text-sm text-LightPink">.MAL</span></a>
+                      <a href="https://myanimelist.net/profile/Yesramji" className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'dark'}`}>MyAnimeList<span className={`text-sm ${lightMode?'text-DarkBlueText':'text-LightPink'}`}>.MAL</span></a>
                       <p>Check out my anime taste too, I really like romance and Slice Of life anime</p>
                     </li>
                   </ul>
@@ -272,7 +272,7 @@ class Profile extends React.Component {
                   }}
                   className={`${showMenu ? "" : "margin-navlogo"} mt-4`}
                 >
-                  <NavLink to="/profile" className="link-about">
+                  <NavLink to="/profile" className={`link-about ${lightMode?"dark":"light"}`}>
                     See More About Me
                   </NavLink>
                   <svg

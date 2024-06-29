@@ -29,21 +29,31 @@ html, body {
 }
 .timeline li::before{
     content: "";
-    background: grey;
     display: inline-block;
     border-radius: 50%;
-    border: 2px solid var(--MedPink);
     position: absolute;
     left: -8px;
     width: 15px;
     margin-top: 9px;
     height: 15px;
 }
+.timeline.dark li::before{
+    border: 2px solid var(--MedPink);
+    background: grey;
+}
+.timeline.light li::before{
+    border: 2px solid var(--DarkMossGreen);
+    background: rgba(14, 14, 14, 0.815);
+}
 .list-title{
     font-size: 1.4rem;
 }
-.link-list-span{
+.link-list-span.light{
     color: var(--LightPink);
+    text-decoration: none;
+}
+.link-list-span.dark{
+    color: var(--DarkBlueText);
     text-decoration: none;
 }
 .link-list-span:hover{
@@ -68,6 +78,9 @@ html, body {
 .float-right{
     margin-left: auto;
 }
-.myread-links:hover{
+.myread-links.dark:hover{
     border-bottom: solid 2px var(--LightPink);
+}
+.myread-links.light:hover{
+    border-bottom: solid 2px var(--DarkBlueText);
 }
