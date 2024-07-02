@@ -35,7 +35,6 @@ class Profile extends React.Component {
     });
   }
   render() {
-    const { showMenu, isMobile ,lightMode} = this.props;
     function ProfileComp({ showMenu, isMobile,lightMode }) {
       return (
         <>

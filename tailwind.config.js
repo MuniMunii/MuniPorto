@@ -16,7 +16,9 @@ module.exports = {
       'Pink600':'#ff85a1',
       'Pink700':'#ff7096',
       'Pink800':'#ff7096',
-      'DarkBlueText':'#041325'
+      'DarkBlueText':'#041325',
+      'Platinum':'#DFE0E2',
+      'Onyx':'3393E41'
     },
     fontFamily:{
       sans:['Montserrat','sans-serif'],
