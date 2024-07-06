@@ -41,7 +41,7 @@ class Profile extends React.Component {
           <div
             className={`profile columns-auto mx-auto container flex items-center h-fit `}
           >
-            <div className={`font-sans w-wrapper mx-auto flex flex-col ${lightMode?'text-DarkBlueText':''}`}>
+            <div className={`font-Poppins w-wrapper mx-auto flex flex-col ${lightMode?'text-DarkBlueText':''}`}>
               <div className={`${isMobile ? "mx-[20px]" : "about"}`}>
                 <h1 className="text-center text-3xl">ABOUT ME</h1>
                 <div className="part1">

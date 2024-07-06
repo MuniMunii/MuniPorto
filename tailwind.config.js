@@ -22,6 +22,7 @@ module.exports = {
     },
     fontFamily:{
       sans:['Montserrat','sans-serif'],
+      Poppins:['Poppins','sans-serif'],
       serif:['']
     },
     fontWeight:{
@@ -31,7 +32,8 @@ module.exports = {
     },
     extend: {
       screens:{
-        Phone:{'max':'576px'}
+        Phone:{'max':'576px'},
+        desktop:{'min':'576px'},
       },
       keyframes: {
         fadeIn: {
@@ -59,4 +61,5 @@ module.exports = {
   },
   plugins: [],
 }
+
 

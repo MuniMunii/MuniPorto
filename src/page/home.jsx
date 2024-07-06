@@ -24,7 +24,7 @@ class Home extends React.Component {
             className={`profile columns-auto mx-auto container flex items-center justify-center  ${landscapeValue} `}
           >
             {/* profile */}
-            <div className={`font-sans w-wrapper mx-auto flex-col ${lightMode?'text-DarkBlueText':''}`}>
+            <div className={`font-Poppins w-wrapper mx-auto flex-col ${lightMode?'text-DarkBlueText':''}`}>
               <h1 className="text-h1Xl font-bolder">HI.</h1>
               <h1 className="text-h1Med font-bold">I'am Ramzi.</h1>
               <p className="font-bold">

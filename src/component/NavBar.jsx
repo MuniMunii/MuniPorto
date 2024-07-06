@@ -162,7 +162,7 @@ class NavBar extends React.Component {
     return (
       <>
         <div className="flex justify-center align-middle">
-          <div className="navbar-class w-med text/[20px]">
+          <div className="navbar-class w-med Phone:text/[20px] desktop:text-[24px]">
             
             <p
               className={`menu-bar justify-center flex ${
