@@ -40,7 +40,6 @@ class PageNormal extends React.Component {
   render() {
     const { showMenu, isLandscape, isMobile,lightMode} = this.state;
     const { content} = this.props;
-    console.log(`${lightMode} is active`);
     return (
       <>
         <div

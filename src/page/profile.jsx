@@ -260,7 +260,7 @@ class Profile extends React.Component {
                     </li>
                     <li className="ml-5 mt-3">
                       <a href="https://myanimelist.net/profile/Yesramji" className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'dark'}`}>MyAnimeList<span className={`text-sm ${lightMode?'text-DarkBlueText':'text-LightPink'}`}>.MAL</span></a>
-                      <p>Check out my anime taste too, I really like romance and Slice Of life anime</p>
+                      <p>Check out my anime taste, I really like romance and Slice Of life anime</p>
                     </li>
                   </ul>
                 </div>
