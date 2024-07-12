@@ -7,6 +7,7 @@ import Profile from './page/profile';
 import Portfolio from './page/portofolio';
 import { keepThemes } from './utils/themes';
 import { useEffect } from 'react';
+import PortofolioProt from './page/portofolioproto';
 function App() {
   useEffect(()=>{
     keepThemes()
@@ -15,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/portofolio" element={<Portfolio />} />
+        <Route path="/portofolio" element={<PortofolioProt />} />
       </Routes>
   );
 }

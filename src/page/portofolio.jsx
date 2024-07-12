@@ -28,30 +28,14 @@ class Portfolio extends React.Component {
     this.setState({ isMobile: !isMobile });
     this.setState({ showMenu: !isMobile });
   }
-  setCurtain=()=>{
-    this.setState({ curtainState: true });
+  setCurtain(props){
+    function test(){
+      this.setState({ curtainState: true });
+    }
+    
   }
   render() {
     const { curtainState } = this.state;
-
-    function curtainContent({ content }) {
-      const elementCurtainContent = document.querySelector(".curtain-content");
-      console.log("nyambung");
-      console.log(curtainState);
-      function closeNav() {
-        elementCurtainContent.setAttribute("class", "close");
-      }
-      return (
-        <>
-          <div className="curtain-content fixed inset-0 right-0 top-0 z-[1] bg-RaisinBlack w-[400px]">
-            <div className="w-full h-full Phone:w-full">
-              <p onClick={closeNav}>Close Here</p>
-              <p>{content.titleName}</p>
-            </div>
-          </div>
-        </>
-      );
-    }
 
     function PortoData({ lightMode }) {
       return myData.map((content, index) => {
@@ -71,13 +55,31 @@ class Portfolio extends React.Component {
             </>
           );
         });
+        function CurtainContent() {
+          const elementCurtainContent = document.querySelector(".curtain-content");
+          console.log("nyambung");
+          console.log(curtainState);
+          function closeNav() {
+            elementCurtainContent.setAttribute("class", "close");
+          }
+          return (
+            <>
+              <div className="curtain-content fixed inset-0 right-0 top-0 z-[1] bg-RaisinBlack w-[400px]">
+                <div className="w-full h-full Phone:w-full">
+                  <p onClick={closeNav}>Close Here</p>
+                  <p>{content.titleName}</p>
+                </div>
+              </div>
+            </>
+          );
+        }
         if (myData.length >= 1) {
           return (
             <>
               <div
                 key={index}
                 className="content-porto relative w-[90%] h-[15em] px-[1.4rem] py-[1.2rem] flex items-end rounded-lg border-b-RaisinBlack border-[2px] overflow-hidden bg-no-repeat cursor-pointer break-inside-avoid"
-                onClick={() => curtainContent({ content })}
+                onClick={() => CurtainContent()}
               >
                 <img
                   src={`${require("../assets/images/data/" + content.img)}`}
