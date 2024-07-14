@@ -17,7 +17,9 @@ module.exports = {
       'Pink700':'#ff7096',
       'Pink800':'#ff7096',
       'DarkBlueText':'#041325',
+      'SteelBlue':'#3E7CB1',
       'Platinum':'#DFE0E2',
+      'White':'rgb(255, 255, 255)',
       'Onyx':'3393E41'
     },
     fontFamily:{
