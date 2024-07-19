@@ -17,6 +17,7 @@ module.exports = {
       'Pink700':'#ff7096',
       'Pink800':'#ff7096',
       'DarkBlueText':'#041325',
+      'PastelBlue':'#BBDEE4',
       'SteelBlue':'#3E7CB1',
       'Platinum':'#DFE0E2',
       'White':'rgb(255, 255, 255)',
