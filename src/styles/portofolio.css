@@ -1,0 +1,41 @@
+.content-slate{
+    font-weight: bolder;
+    color: black;
+}
+.content-porto .content-slate{
+    opacity: 0;
+    transform: translateY(10%);
+    transition: opacity 300ms ease-in-out , transform 300ms ease-in-out;
+}
+.content-porto:hover .content-slate{
+    opacity: 1;
+    transform: translateY(0);
+    
+}
+.content-porto::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+    background: linear-gradient(rgba(0, 0, 0, 0.1) 10%, rgba(0, 0, 0, 0.986) 60%);
+}
+.content-porto:hover::after{
+    opacity: 0.3;
+}
+
+.curtain-content{
+  width: 25em;
+  transition: width 0.3s ease-in-out;
+}
+.overlay{
+    background-color: rgba(0, 0, 0, 0.123);
+}
+
+@media screen and (max-width: 576px){
+  .curtain-content{
+    width: 100%;
+    transition: width 0.3s ease-in-out;
+  }
+}
