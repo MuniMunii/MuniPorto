@@ -12,6 +12,11 @@ import { toBeEmpty } from "@testing-library/jest-dom/dist/matchers";
 function PortofolioProt() {
   const [curtainContentState, setCurtainState] = React.useState(false);
   const [selectedContent, setSelectedContent] = React.useState(null);
+  const [genreState,setGenreState]=React.useState(null)
+  console.log(genreState);
+  function changeGenre(genre){
+    setGenreState(genre)
+  }
   function changeCurtainContentState(content) {
     setSelectedContent(content);
     setCurtainState(myData.filter(data=>data.genre==='project'));
@@ -162,8 +167,8 @@ function PortofolioProt() {
           >
             <h1 className={`text-center`}>Portofolio</h1>
             <div className={`text-center`}>
-            <button className={`text-center mx-3 ${lightMode?'':''}`} onClick={toBeEmpty}>My Reads</button>
-            <button className={`text-center mx-3 ${lightMode?'':''}`} onClick={toBeEmpty}>My Project</button>
+            <button className={`text-center mx-3 ${lightMode?'':''}`} onClick={()=>changeGenre('myreads')}>My Reads</button>
+            <button className={`text-center mx-3 ${lightMode?'':''}`} onClick={()=>changeGenre('project')}>My Project</button>
             </div>
             <PortoData lightMode={lightMode}  />
           </div>
