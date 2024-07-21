@@ -1,13 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import NavBar from "../component/NavBar";
 import "../styles/root.css";
 import { NavLink } from "react-router-dom";
-import Footer from "../component/Footer";
 import PageNormal from "../component/page";
 import { myData } from "../utils/portoData";
 import "../styles/portofolio.css";
 import "../lib/font-awesome-4.7.0/css/font-awesome.min.css";
-import { toBeEmpty } from "@testing-library/jest-dom/dist/matchers";
 
 function PortofolioProt() {
   const [curtainContentState, setCurtainState] = React.useState(false);
@@ -21,7 +18,7 @@ function PortofolioProt() {
     setSelectedContent(content);
     setCurtainState(myData.filter((data) => data.genre === "project"));
   }
-  function PortoData({ lightMode, genre }) {
+  function PortoData({ lightMode }) {
     function CurtainContent({ content }) {
       const [animationState, setAnimation] = useState(false);
       const skillList = content.theme.map((skill, index) => {
@@ -165,7 +162,7 @@ function PortofolioProt() {
               <img
                 src={`${require("../assets/images/data/" + content.img)}`}
                 alt=""
-                srcset=""
+                srcSet=""
                 className="w-full h-full left-0 top-0 absolute"
                 style={{ objectPosition: "center center" }}
               />
@@ -191,7 +188,7 @@ function PortofolioProt() {
               <img
                 src={`${require("../assets/images/data/" + content.img)}`}
                 alt=""
-                srcset=""
+                srcSet=""
                 className="w-full h-full left-0 top-0 absolute"
                 style={{ objectPosition: "center center" }}
               />
