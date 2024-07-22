@@ -72,7 +72,7 @@ class Profile extends React.Component {
                         to learn programming because i really have zero
                         knowledge in programming language. But somehow i still
                         finished the Bootcamp and i took another Bootcamp for
-                        JAVA Language in this bootcamp i finally understand the
+                        Java Language in this bootcamp i finally understand the
                         basics of programming like Data Primitives, conditional,
                         Aritmethic operator and etc.
                       </p>
@@ -259,7 +259,7 @@ class Profile extends React.Component {
                     </li>
                     <li className="ml-5 mt-3">
                       <a href="https://myanimelist.net/profile/Yesramji" className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'dark'}`}>MyAnimeList<span className={`text-sm ${lightMode?'text-DarkBlueText':'text-LightPink'}`}>.MAL</span></a>
-                      <p>Check out my anime taste, I really like romance and Slice Of life anime</p>
+                      <p>Check out my anime taste, I really like romance and Slice Of life anime.</p>
                     </li>
                   </ul>
                 </div>
@@ -270,7 +270,7 @@ class Profile extends React.Component {
                   }}
                   className={`${showMenu ? "" : "margin-navlogo"} mt-4`}
                 >
-                  <NavLink to="/profile" className={`link-about ${lightMode?"dark":"light"}`}>
+                  <NavLink to="/portofolio" className={`link-about ${lightMode?"dark":"light"}`}>
                     See More About Me
                   </NavLink>
                   <svg

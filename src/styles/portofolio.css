@@ -33,6 +33,24 @@
     background-color: rgba(0, 0, 0, 0.123);
 }
 
+.card-animation{
+  animation-duration: 1s;
+  animation-name: upAnimation;
+  animation-fill-mode: both;
+}
+@keyframes upAnimation{
+  0%{
+    margin-top: 0 ;
+    margin-bottom: 0;
+    opacity: 0;
+  }
+  100%{
+    margin-top: 0.5em ;
+    margin-bottom: 0.5em;
+    opacity: 1;
+  }
+}
+
 @media screen and (max-width: 576px){
   .curtain-content{
     width: 100%;

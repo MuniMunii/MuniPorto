@@ -121,7 +121,9 @@ class NavBar extends React.Component {
     const { showMenu,lightMode} = this.props;
     function DayLogo(){
       return(
-        <><svg width="30" height="30" id="light-icon">
+        <>
+        <div className={`${lightMode?'text-DarkBlueText':'text-White'}`}>
+        <svg width="30" height="30" id="light-icon" >
       <circle cx="15" cy="15" r="6" fill="currentColor" />
       <line
         id="ray"
@@ -142,6 +144,7 @@ class NavBar extends React.Component {
       <use href="#ray" transform="rotate(270 15 15)" />
       <use href="#ray" transform="rotate(315 15 15)" />
     </svg>
+        </div>
 </>
       )
     }
@@ -179,7 +182,7 @@ class NavBar extends React.Component {
                   : "navbar-list relative"
               }`}
             >
-            <button className={`button-theme toggle-hide mr-4 ${showMenu? "": "hidden"}`} onClick={this.changeThemeMode}>
+            <button className={`button-theme w-fit toggle-hide mr-4 ${showMenu? "": "hidden"}`} onClick={this.changeThemeMode}>
               {lightMode?<DarkLogo/> :<DayLogo/>}
             </button>
               <NavLink

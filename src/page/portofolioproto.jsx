@@ -51,7 +51,11 @@ function PortofolioProt() {
             } ${lightMode ? "bg-[#3f63c7]" : ""}`}
           >
             <div className={`w-[95%] mx-auto `}>
-              <div className="flex justify-between my-2 mx-4 text-Platinum">
+              <div
+                className={`flex justify-between my-2 mx-4 ${
+                  lightMode ? "text-DarkBlueText" : "text-Platinum"
+                }`}
+              >
                 <p onClick={closeNav} className="cursor-pointer text-[1.2rem]">
                   <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
                 </p>
@@ -132,57 +136,15 @@ function PortofolioProt() {
         </>
       );
     }
-
     return myData.map((content, index) => {
       let genreFilter = content.genre === genreState;
-      const skillSet = content.theme.map((skill, index) => {
-        return (
-          <>
-            <li
-              key={index}
-              className={`Phone:px-[10px] text-[11px] Phone:py-[4px] desktop:px-[12px] dekstop:py-[5px] rounded-md mx-[2px] my-[3px] ${
-                lightMode
-                  ? "bg-Onyx text-Pink100"
-                  : "bg-Platinum text-DarkBlueText"
-              }`}
-            >
-              {skill}
-            </li>
-          </>
-        );
-      });
-      if (myData.length >= 1 && genreState === "all") {
+
+      function CardContent() {
         return (
           <>
             <div
               key={index}
-              className={`content-porto relative w-[90%] h-[15em] mx-auto px-[1.4em] py-[1.2em] my-2 flex items-end rounded-lg border-b-RaisinBlack border-[2px] overflow-hidden bg-no-repeat cursor-pointer break-inside-avoid`}
-              onClick={() => changeCurtainContentState(content)}
-            >
-              <img
-                src={`${require("../assets/images/data/" + content.img)}`}
-                alt=""
-                srcSet=""
-                className="w-full h-full left-0 top-0 absolute"
-                style={{ objectPosition: "center center" }}
-              />
-              <div className="content-slate w-[90%] ">
-                <h3 className="">{content.titleName}</h3>
-                <p className="font-light">{content.description}</p>
-                <ul className="flex flex-wrap font-light">{skillSet}</ul>
-              </div>
-            </div>
-            {curtainContentState && selectedContent !== null && (
-              <CurtainContent content={selectedContent} lightMode={lightMode} />
-            )}
-          </>
-        );
-      } else if (genreFilter) {
-        return (
-          <>
-            <div
-              key={index}
-              className={`content-porto relative w-[90%] h-[15em] mx-auto px-[1.4em] py-[1.2em] my-2 flex items-end rounded-lg border-b-RaisinBlack border-[2px] overflow-hidden bg-no-repeat cursor-pointer break-inside-avoid`}
+              className={`content-porto relative w-[90%] h-[15em] mx-auto  px-[1.4em] py-[1.2em] flex items-end rounded-lg border-b-RaisinBlack border-[2px] overflow-hidden bg-no-repeat cursor-pointer break-inside-avoid`}
               onClick={() => changeCurtainContentState(content)}
             >
               <img
@@ -204,6 +166,44 @@ function PortofolioProt() {
           </>
         );
       }
+
+      const skillSet = content.theme.map((skill, index) => {
+        return (
+          <>
+            <li
+              key={index}
+              className={`Phone:px-[10px] text-[11px] Phone:py-[4px] desktop:px-[12px] dekstop:py-[5px] rounded-md mx-[2px] my-[3px] ${
+                lightMode
+                  ? "bg-Onyx text-Pink100"
+                  : "bg-Platinum text-DarkBlueText"
+              }`}
+            >
+              {skill}
+            </li>
+          </>
+        );
+      });
+      if (myData.length >= 1 && genreState === "all") {
+        return (
+          <>
+            <div
+              className={`${curtainContentState ? "my-2" : "card-animation"}`}
+            >
+              <CardContent />
+            </div>
+          </>
+        );
+      } else if (genreFilter) {
+        return (
+          <>
+            <div
+              className={`${curtainContentState ? "my-2" : "card-animation"}`}
+            >
+              <CardContent />
+            </div>
+          </>
+        );
+      }
     });
   }
 
@@ -221,19 +221,55 @@ function PortofolioProt() {
             <h1 className={`text-center`}>Portofolio</h1>
             <div className={`text-center`}>
               <button
-                className={`text-center mx-3 ${lightMode ? "border-b-RaisinBlack" : "border-b-DarkPink"} ${genreState==='all'?'border-b pb-[2px]':''}`}
+                className={`text-center mx-3 font-bold ${
+                  lightMode
+                    ? "text-DarkBlueText border-b-RaisinBlack"
+                    : "text-Pink100 border-b-DarkPink"
+                } ${
+                  genreState === "all"
+                    ? "pb-[2px] border-b-2 bg-gradient-to-tr from-LightPink to-DarkPink bg-clip-text text-[transparent]"
+                    : ""
+                } ${
+                  genreState === "all" && lightMode
+                    ? "bg-gradient-to-tr from-DarkMossGreen to-DarkBlueText bg-clip-text text-[transparent]"
+                    : ""
+                }`}
                 onClick={() => changeGenre("all")}
               >
-                all
+                All
               </button>
               <button
-                className={`text-center mx-3 ${lightMode ? "border-b-RaisinBlack" : "border-b-DarkPink"} ${genreState==='myread'?'border-b pb-[2px]':''}`}
+                className={`text-center mx-3 font-bold ${
+                  lightMode
+                    ? "text-DarkBlueText border-b-RaisinBlack"
+                    : "text-Pink100 border-b-DarkPink"
+                } ${
+                  genreState === "myread"
+                    ? "pb-[2px] border-b-2 bg-gradient-to-tr from-LightPink to-DarkPink bg-clip-text text-[transparent]"
+                    : ""
+                } ${
+                  genreState === "myread" && lightMode
+                    ? "bg-gradient-to-tr from-DarkMossGreen to-DarkBlueText bg-clip-text text-[transparent]"
+                    : ""
+                }`}
                 onClick={() => changeGenre("myread")}
               >
                 My Reads
               </button>
               <button
-                className={`text-center mx-3 ${lightMode ? "border-b-RaisinBlack" : "border-b-DarkPink"} ${genreState==='project'?'border-b pb-[2px]':''}`}
+                className={`text-center mx-3 font-bold ${
+                  lightMode
+                    ? "text-DarkBlueText border-b-RaisinBlack"
+                    : "text-Pink100 border-b-DarkPink"
+                } ${
+                  genreState === "project"
+                    ? "pb-[2px] border-b-2 bg-gradient-to-tr from-LightPink to-DarkPink bg-clip-text text-[transparent]"
+                    : ""
+                }  ${
+                  genreState === "project" && lightMode
+                    ? "bg-gradient-to-tr from-DarkMossGreen to-DarkBlueText bg-clip-text text-[transparent]"
+                    : ""
+                }`}
                 onClick={() => changeGenre("project")}
               >
                 My Project
