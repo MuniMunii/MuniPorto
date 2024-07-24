@@ -10,7 +10,7 @@ class Footer extends React.Component {
     const { isMobile } = this.props;
     function FooterComp(){
       return (
-        <div className={`Display ${isMobile?'absolute-logo-list':'flex flex-row'} w-fit`}>
+        <div className={`${isMobile?'absolute-logo-list':'flex flex-row'} mt-6 w-fit`}>
           <div className="logo-div">
             <a href="#" className="logo-link">
               <i className="fa fa-instagram" aria-hidden="true"></i>

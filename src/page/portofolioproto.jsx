@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/root.css";
+import Footer from "../component/Footer";
 import { NavLink } from "react-router-dom";
 import PageNormal from "../component/page";
 import { myData } from "../utils/portoData";
@@ -7,16 +8,21 @@ import "../styles/portofolio.css";
 import "../lib/font-awesome-4.7.0/css/font-awesome.min.css";
 
 function PortofolioProt() {
+  const GENRE = {
+    ALL: "all",
+    PROJECT: "project",
+    MYREAD: "myread",
+  };
   const [curtainContentState, setCurtainState] = React.useState(false);
   const [selectedContent, setSelectedContent] = React.useState(null);
-  const [genreState, setGenreState] = React.useState("all");
+  const [genreState, setGenreState] = React.useState(GENRE.ALL);
   console.log(genreState);
   function changeGenre(genre) {
     setGenreState(genre);
   }
   function changeCurtainContentState(content) {
     setSelectedContent(content);
-    setCurtainState(myData.filter((data) => data.genre === "project"));
+    setCurtainState(myData.filter((data) => data.genre === GENRE.PROJECT));
   }
   function PortoData({ lightMode }) {
     function CurtainContent({ content }) {
@@ -183,7 +189,7 @@ function PortofolioProt() {
           </>
         );
       });
-      if (myData.length >= 1 && genreState === "all") {
+      if (myData.length >= 1 && genreState === GENRE.ALL) {
         return (
           <>
             <div
@@ -223,59 +229,88 @@ function PortofolioProt() {
               <button
                 className={`text-center mx-3 font-bold ${
                   lightMode
-                    ? "text-DarkBlueText border-b-RaisinBlack"
-                    : "text-Pink100 border-b-DarkPink"
+                    ? "text-DarkBlueText border-b-RaisinBlack "
+                    : "text-Pink100 border-b-DarkPink "
                 } ${
-                  genreState === "all"
+                  genreState === GENRE.ALL && !lightMode
                     ? "pb-[2px] border-b-2 bg-gradient-to-tr from-LightPink to-DarkPink bg-clip-text text-[transparent]"
                     : ""
                 } ${
-                  genreState === "all" && lightMode
-                    ? "bg-gradient-to-tr from-DarkMossGreen to-DarkBlueText bg-clip-text text-[transparent]"
+                  genreState === GENRE.ALL && lightMode
+                    ? "pb-[2px] border-b-2 bg-gradient-to-tr from-DarkMossGreen to-DarkBlueText bg-clip-text text-[transparent]"
                     : ""
                 }`}
-                onClick={() => changeGenre("all")}
+                onClick={() => changeGenre(GENRE.ALL)}
               >
                 All
               </button>
               <button
                 className={`text-center mx-3 font-bold ${
                   lightMode
-                    ? "text-DarkBlueText border-b-RaisinBlack"
-                    : "text-Pink100 border-b-DarkPink"
-                } ${
-                  genreState === "myread"
+                    ? "text-DarkBlueText border-b-RaisinBlack "
+                    : "text-Pink100 border-b-DarkPink "
+                }${
+                  genreState === GENRE.MYREAD && !lightMode
                     ? "pb-[2px] border-b-2 bg-gradient-to-tr from-LightPink to-DarkPink bg-clip-text text-[transparent]"
                     : ""
                 } ${
-                  genreState === "myread" && lightMode
-                    ? "bg-gradient-to-tr from-DarkMossGreen to-DarkBlueText bg-clip-text text-[transparent]"
+                  genreState === GENRE.MYREAD && lightMode
+                    ? "pb-[2px] border-b-2 bg-gradient-to-tr from-DarkMossGreen to-DarkBlueText bg-clip-text text-[transparent]"
                     : ""
                 }`}
-                onClick={() => changeGenre("myread")}
+                onClick={() => changeGenre(GENRE.MYREAD)}
               >
                 My Reads
               </button>
               <button
                 className={`text-center mx-3 font-bold ${
                   lightMode
-                    ? "text-DarkBlueText border-b-RaisinBlack"
-                    : "text-Pink100 border-b-DarkPink"
-                } ${
-                  genreState === "project"
+                    ? "text-DarkBlueText border-b-RaisinBlack "
+                    : "text-Pink100 border-b-DarkPink "
+                }${
+                  genreState === GENRE.PROJECT && !lightMode
                     ? "pb-[2px] border-b-2 bg-gradient-to-tr from-LightPink to-DarkPink bg-clip-text text-[transparent]"
                     : ""
-                }  ${
-                  genreState === "project" && lightMode
-                    ? "bg-gradient-to-tr from-DarkMossGreen to-DarkBlueText bg-clip-text text-[transparent]"
+                } ${
+                  genreState === GENRE.PROJECT && lightMode
+                    ? "pb-[2px] border-b-2 bg-gradient-to-tr from-DarkMossGreen to-DarkBlueText bg-clip-text text-[transparent]"
                     : ""
                 }`}
-                onClick={() => changeGenre("project")}
+                onClick={() => changeGenre(GENRE.PROJECT)}
               >
                 My Project
               </button>
             </div>
             <PortoData lightMode={lightMode} />
+            <div className="ml-[34px]">
+              <div
+                className={`${
+                  showMenu ? "" : "margin-navlogo"
+                } flex mt-4 items-center`}
+              >
+                <NavLink
+                  to="/profile"
+                  className={`flex no-underline bg-no-repeat bg-borderBottom bg-centerBott transition-bg_Size duration-TwoMilliSecond ease-in-out hover:bg-borderBottomFull  ${
+                    lightMode
+                      ? "text-DarkBlueText hover:bg-gradient-to-r from-DarkMossGreen to-DarkBlueText"
+                      : "text-LightPink hover:bg-gradient-to-r from-LightPink to-DarkPink"
+                  }`}
+                >
+                  My Resume
+                </NavLink>
+                <svg
+                  className="arrow-right"
+                  width="24"
+                  height="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                >
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+              </div>
+              <Footer isMobile={isMobile} />
+            </div>
           </div>
         </div>
       </>

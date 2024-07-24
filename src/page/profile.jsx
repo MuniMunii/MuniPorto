@@ -270,8 +270,8 @@ class Profile extends React.Component {
                   }}
                   className={`${showMenu ? "" : "margin-navlogo"} mt-4`}
                 >
-                  <NavLink to="/portofolio" className={`link-about ${lightMode?"dark":"light"}`}>
-                    See More About Me
+                  <NavLink to="/portofolio" className={`flex no-underline bg-no-repeat bg-borderBottom bg-centerBott transition-bg_Size duration-TwoMilliSecond ease-in-out hover:bg-borderBottomFull  ${lightMode?"text-DarkBlueText hover:bg-gradient-to-r from-DarkMossGreen to-DarkBlueText":"text-LightPink hover:bg-gradient-to-r from-LightPink to-DarkPink"}`}>
+                    Go to Portofolio
                   </NavLink>
                   <svg
                     className="arrow-right"

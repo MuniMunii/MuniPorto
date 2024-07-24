@@ -9,54 +9,51 @@ import {
   Routes,
 } from "react-router-dom";
 import Footer from "../component/Footer";
+import { TypeAnimation } from "react-type-animation";
 
 class Home extends React.Component {
   constructor() {
     super();
   }
   render() {
-    function HomeProfileComp({showMenu,isMobile,isLandscape,lightMode}) {
-      const landscapeValue = isLandscape ? "h-fit" : "";
+    function HomeProfileComp({ showMenu, isMobile , lightMode }) {
       return (
         <>
           <div
-            className={`profile columns-auto mx-auto container flex items-center justify-center  ${landscapeValue} `}
+            className={`profile columns-auto mx-auto container flex justify-center items-center`}
           >
             {/* profile */}
-            <div className={`font-Poppins w-wrapper mx-auto flex-col ${lightMode?'text-DarkBlueText':''}`}>
-              <h1 className="text-h1Xl font-bolder">HI.</h1>
+            <div
+              className={`font-Poppins w-wrapper mx-auto flex-col my-auto ${
+                lightMode ? "text-DarkBlueText" : ""
+              }`}
+            >
+              <h1 className="text-h1Xl font-bolder">Greetings there!</h1>
               <h1 className="text-h1Med font-bold">I'am Ramzi.</h1>
               <p className="font-bold">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-                voluptas modi nobis quas enim doloribus ipsum ex eveniet sunt
-                iure? Inventore dignissimos ea deleniti nisi modi provident quas
-                ipsum debitis! Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. A velit doloribus blanditiis doloremque!
-                Nesciunt blanditiis inventore ea recusandae, harum iste fuga
-                consequatur aliquid, magnam, eveniet ducimus quia a nisi facilis
-                neque. Qui dolorem eligendi minima beatae officia, repellat quo
-                natus. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Corporis cupiditate nulla recusandae vero asperiores deleniti,
-                ea, accusamus quos in commodi consequatur voluptatem minus,
-                veritatis esse autem quisquam possimus rem tempore cum animi
-                veniam quasi fugit temporibus! Porro illo voluptas officiis
-                tenetur? Et exercitationem dicta deserunt quaerat debitis minus
-                eum ratione, totam a nesciunt sint molestias delectus veritatis
-                at fugit vitae quas facere quod. Voluptates, veniam. Quod cum
-                dicta possimus nostrum accusantium aut, voluptatum ratione
-                eveniet accusamus iste, ducimus ipsa ab hic quaerat eos, quas
-                fuga sed! Sed quae dolorum ipsa aut, distinctio, nesciunt
-                aliquid et omnis fuga qui, molestiae adipisci.
+                I'm just a person who having a strong
+                passion in Progrraming especially Web developments. Lets read more <span><NavLink to='/profile' className={`hover:underline ${lightMode?'text-DarkMossGreen':'text-LightPink'}`}>about me</NavLink></span>. I have a solid
+                background in HTML, CSS, and JavaScript. I like to keep up with
+                the newest developments in website like React and among other
+                technologies to make sure my <span><NavLink to="/portofolio" className={`hover:underline ${lightMode?'text-DarkMossGreen':'text-LightPink'}`}>Project</NavLink></span> is constantly
+                Up to date. My aim is to transform creativity into useful
+                and engaging digital environments, ensuring that every user
+                experience is seamless and pleasurable. Together, let's make
+                something incredible!
               </p>
               <div
-                style={{
-                  display: "flex",
-                  marginTop: "3px",
-                  alignItems: "center",
-                }}
-                className={`${showMenu ? "" : "margin-navlogo"}`}
+                className={`${
+                  showMenu ? "" : "margin-navlogo"
+                } flex mt-1 items-center`}
               >
-                <NavLink to="/profile" className={`link-about ${lightMode?"dark":"light"}`}>
+                <NavLink
+                  to="/profile"
+                  className={`flex no-underline bg-no-repeat bg-borderBottom bg-centerBott transition-bg_Size duration-TwoMilliSecond ease-in-out hover:bg-borderBottomFull  ${
+                    lightMode
+                      ? "text-DarkBlueText hover:bg-gradient-to-r from-DarkMossGreen to-DarkBlueText"
+                      : "text-LightPink hover:bg-gradient-to-r from-LightPink to-DarkPink"
+                  }`}
+                >
                   See More About Me
                 </NavLink>
                 <svg
@@ -79,11 +76,7 @@ class Home extends React.Component {
 
     return (
       <>
-        <PageNormal
-          content={
-            (props)=><HomeProfileComp {...props}/>
-          }
-        />
+        <PageNormal content={(props) => <HomeProfileComp {...props} />} />
       </>
     );
   }

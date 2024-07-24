@@ -2,6 +2,19 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    transitionProperty:{
+      bg_Size:'background-size',
+    },
+    transitionDuration:{
+      TwoMilliSecond:'0.2s'
+    },
+    backgroundPosition:{
+      centerBott:'center bottom'
+    },
+    backgroundSize:{
+      borderBottom:'0 3px',
+      borderBottomFull:'100% 3px',
+    },
     colors:{
       'DarkPink':'#fb6f92',
       'LightPink':'#ffe5ec',
