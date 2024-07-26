@@ -42,14 +42,14 @@ class Profile extends React.Component {
           >
             <div className={`font-Poppins w-wrapper mx-auto flex flex-col ${lightMode?'text-DarkBlueText':''}`}>
               <div className={`${isMobile ? "mx-[20px]" : "about"}`}>
-                <h1 className="text-center text-3xl">ABOUT ME</h1>
+                <h1 className={`text-center text-3xl ${lightMode?'':'text-LightPink'}`}>ABOUT ME</h1>
                 <div className="part1">
-                  <h2 className="mb-2 text-[1.3rem]">Journey</h2>
+                  <h2 className={`mb-2 text-[1.3rem] ${lightMode?'':'text-Pink200'}`}>Journey</h2>
                   <ul className={`timeline ${lightMode?'light':'dark'}`}>
                     <li className="ml-5">
                       <p
                         href=""
-                        className="text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap"
+                        className={`text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap ${lightMode?'':'text-Pink500'}`}
                       >
                         2021
                       </p>
@@ -81,7 +81,7 @@ class Profile extends React.Component {
                       <div className="title-comp">
                         <p
                           href=""
-                          className="text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap"
+                          className={`text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap ${lightMode?'':'text-Pink500'}`}
                         >
                           2022
                         </p>
@@ -110,7 +110,7 @@ class Profile extends React.Component {
                     <li className="ml-5 mt-3">
                       <p
                         href=""
-                        className="text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap"
+                        className={`text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap ${lightMode?'':'text-Pink500'}`}
                       >
                         2023
                       </p>
@@ -129,7 +129,7 @@ class Profile extends React.Component {
                     <li className="ml-5 mt-3">
                       <p
                         href=""
-                        className="text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap"
+                        className={`text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap ${lightMode?'':'text-Pink500'}`}
                       >
                         2024
                       </p>
@@ -143,7 +143,7 @@ class Profile extends React.Component {
                     <li className="ml-5 mt-3">
                       <p
                         href=""
-                        className="text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap"
+                        className={`text-[1.4rem] font-bold  Phone:Phone:text-[1.2rem] text-wrap ${lightMode?'':'text-Pink500'}`}
                       >
                         Currently
                       </p>
@@ -155,12 +155,12 @@ class Profile extends React.Component {
                   </ul>
                 </div>
                 <div className="part2 mt-[20px]">
-                  <h2 className="mb-2 text-[1.3rem]">My Reads</h2>
+                  <h2 className={`mb-2 text-[1.3rem] ${lightMode?'':'text-Pink200'}`}>My Recommendations</h2>
                   <ul className={`timeline ${lightMode?'light':'dark'}`}>
                     <li className="ml-5">
                       <a
                         href=""
-                        className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'dark'}`}
+                        className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'text-Pink500 dark'}`}
                       >
                         HTML&CSS
                         <span className={`text-sm ${lightMode?'text-DarkBlueText':'text-LightPink'}`}>
@@ -182,7 +182,7 @@ class Profile extends React.Component {
                     <li className="ml-5 mt-3">
                       <a
                         href="https://github.com/Asabeneh/30-Days-Of-JavaScript"
-                        className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'dark'}`}
+                        className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'text-Pink500 dark'}`}
                       >
                         JavascriptChallenges
                         <span className={`text-sm ${lightMode?'text-DarkBlueText':'text-LightPink'}`}>.Github</span>
@@ -211,7 +211,7 @@ class Profile extends React.Component {
                     <li className="ml-5 mt-3">
                       <a
                         href="https://github.com/ryanmcdermott/clean-code-javascript"
-                        className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'dark'}`}
+                        className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap  ${lightMode?'light':'text-Pink500 dark'}`}
                       >
                         Writing Clean Code
                         <span className={`text-sm ${lightMode?'text-DarkBlueText':'text-LightPink'}`}>.Github</span>
@@ -226,12 +226,12 @@ class Profile extends React.Component {
                   </ul>
                 </div>
                 <div className="part3 mt-[20px]">
-                  <h2 className="mb-2 text-[1.3rem]">Playlist And Other</h2>
+                  <h2 className={`mb-2 text-[1.3rem] ${lightMode?'':'text-Pink200'}`}>Playlist And Other</h2>
                   <ul className={`timeline ${lightMode?'light':'dark'}`}>
                     <li className="ml-5 mt-3">
                       <a
                         href="https://open.spotify.com/playlist/51Lsg8Y6SS9Dxk1wPLbqUO?si=7ce04b2f7b3745a6"
-                        className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'dark'}`}
+                        className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap  ${lightMode?'light':'text-Pink500 dark'}`}
                       >
                         Classical Music
                         <span className={`text-sm ${lightMode?'text-DarkBlueText':'text-LightPink'}`}>.Spotify</span>
@@ -244,7 +244,7 @@ class Profile extends React.Component {
                     <li className="ml-5 mt-3">
                       <a
                         href="https://open.spotify.com/playlist/2uD4h8wCG7B2vYrHYxzurQ?si=6cc4769a0a004417"
-                        className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'dark'}`}
+                        className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'text-Pink500 dark'}`}
                       >
                         Vocaloid
                         <span className={`text-sm ${lightMode?'text-DarkBlueText':'text-LightPink'}`}>.Spotify</span>
@@ -258,7 +258,7 @@ class Profile extends React.Component {
                       </p>
                     </li>
                     <li className="ml-5 mt-3">
-                      <a href="https://myanimelist.net/profile/Yesramji" className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap ${lightMode?'light':'dark'}`}>MyAnimeList<span className={`text-sm ${lightMode?'text-DarkBlueText':'text-LightPink'}`}>.MAL</span></a>
+                      <a href="https://myanimelist.net/profile/Yesramji" className={`text-[1.4rem] font-bold myread-links w-fit Phone:text-[1.2rem] text-wrap  ${lightMode?'light':'text-Pink500 dark'}`}>MyAnimeList<span className={`text-sm ${lightMode?'text-DarkBlueText':'text-LightPink'}`}>.MAL</span></a>
                       <p>Check out my anime taste, I really like romance and Slice Of life anime.</p>
                     </li>
                   </ul>

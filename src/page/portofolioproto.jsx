@@ -16,7 +16,6 @@ function PortofolioProt() {
   const [curtainContentState, setCurtainState] = React.useState(false);
   const [selectedContent, setSelectedContent] = React.useState(null);
   const [genreState, setGenreState] = React.useState(GENRE.ALL);
-  console.log(genreState);
   function changeGenre(genre) {
     setGenreState(genre);
   }
@@ -25,7 +24,7 @@ function PortofolioProt() {
     setCurtainState(myData.filter((data) => data.genre === GENRE.PROJECT));
   }
   function PortoData({ lightMode }) {
-    function CurtainContent({ content }) {
+    function CurtainContent({ content ,dataId }) {
       const [animationState, setAnimation] = useState(false);
       const skillList = content.theme.map((skill, index) => {
         return (
@@ -33,7 +32,7 @@ function PortofolioProt() {
             className={`py-[4px] px-3 m-1 rounded-md ${
               lightMode ? "bg-Pink600 text-[#000000]" : "bg-Platinum "
             }`}
-            key={index}
+            key={`list-curtain-${dataId}`}
           >
             {skill}
           </li>
@@ -63,7 +62,7 @@ function PortofolioProt() {
                 }`}
               >
                 <p onClick={closeNav} className="cursor-pointer text-[1.2rem]">
-                  <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                  <i className="fa fa-chevron-circle-left" aria-hidden="true"></i>
                 </p>
                 <p
                   onClick={closeNav}
@@ -78,7 +77,7 @@ function PortofolioProt() {
                     lightMode ? "aa" : "text-Platinum tracking-wide"
                   } `}
                 >
-                  <i class="fa fa-level-down mr-3" aria-hidden="true"></i>
+                  <i className="fa fa-level-down mr-3" aria-hidden="true"></i>
                   Title
                 </p>
                 <p className="text-Platinum font-bold">{content.titleName}</p>
@@ -87,7 +86,7 @@ function PortofolioProt() {
                     lightMode ? "aa" : "text-Platinum tracking-wide"
                   }`}
                 >
-                  <i class="fa fa-bookmark mr-3" aria-hidden="true"></i>
+                  <i className="fa fa-bookmark mr-3" aria-hidden="true"></i>
                   Description
                 </p>
                 <p className="text-White">{content.longDesc}</p>
@@ -96,7 +95,7 @@ function PortofolioProt() {
                     lightMode ? "aa" : "text-Platinum tracking-wide"
                   }`}
                 >
-                  <i class="fa fa-ellipsis-v mr-3" aria-hidden="true"></i>
+                  <i className="fa fa-ellipsis-v mr-3" aria-hidden="true"></i>
                   Content
                 </p>
                 <ul className="flex flex-wrap">{skillList}</ul>
@@ -105,7 +104,7 @@ function PortofolioProt() {
                     lightMode ? "aa" : "text-Platinum tracking-wide"
                   }`}
                 >
-                  <i class="fa fa-globe mr-3" aria-hidden="true"></i>
+                  <i className="fa fa-globe mr-3" aria-hidden="true"></i>
                   Link
                 </p>
                 <a
@@ -132,7 +131,7 @@ function PortofolioProt() {
                   } text-center Phone:w-full`}
                 >
                   <p className=" text-xl">
-                    <i class="fa fa-external-link mr-4" aria-hidden="true"></i>
+                    <i className="fa fa-external-link mr-4" aria-hidden="true"></i>
                     Go To Website
                   </p>
                 </div>
@@ -143,14 +142,12 @@ function PortofolioProt() {
       );
     }
     return myData.map((content, index) => {
-      let genreFilter = content.genre === genreState;
-
-      function CardContent() {
+      function CardContent({dataId}) {
         return (
           <>
             <div
-              key={index}
-              className={`content-porto relative w-[90%] h-[15em] mx-auto  px-[1.4em] py-[1.2em] flex items-end rounded-lg border-b-RaisinBlack border-[2px] overflow-hidden bg-no-repeat cursor-pointer break-inside-avoid`}
+              key={`card-${dataId}`}
+              className={`content-porto relative w-[90%] h-[15em] mx-auto px-[1.4em] py-[1.2em] flex items-end rounded-lg border-b-RaisinBlack border-[2px] overflow-hidden bg-no-repeat cursor-pointer break-inside-avoid shadow-[0_3px_10px_rgb(0,0,0,0.2)]`}
               onClick={() => changeCurtainContentState(content)}
             >
               <img
@@ -162,22 +159,21 @@ function PortofolioProt() {
               />
               <div className="content-slate w-[90%] ">
                 <h3 className="">{content.titleName}</h3>
-                <p className="font-light">{content.description}</p>
+                <p className={`font-light text-DarkBlueText`}>{content.description}</p>
                 <ul className="flex flex-wrap font-light">{skillSet}</ul>
               </div>
             </div>
             {curtainContentState && selectedContent !== null && (
-              <CurtainContent content={selectedContent} lightMode={lightMode} />
+              <CurtainContent key={content.ID} dataId={content.ID} content={selectedContent} lightMode={lightMode} />
             )}
           </>
         );
       }
-
       const skillSet = content.theme.map((skill, index) => {
         return (
           <>
             <li
-              key={index}
+              key={`list-card-${content.ID}`}
               className={`Phone:px-[10px] text-[11px] Phone:py-[4px] desktop:px-[12px] dekstop:py-[5px] rounded-md mx-[2px] my-[3px] ${
                 lightMode
                   ? "bg-Onyx text-Pink100"
@@ -189,23 +185,15 @@ function PortofolioProt() {
           </>
         );
       });
-      if (myData.length >= 1 && genreState === GENRE.ALL) {
+      const GENRE_FILTER =
+        genreState === GENRE.ALL ? myData.length : content.genre === genreState;
+      if (GENRE_FILTER) {
         return (
           <>
             <div
               className={`${curtainContentState ? "my-2" : "card-animation"}`}
             >
-              <CardContent />
-            </div>
-          </>
-        );
-      } else if (genreFilter) {
-        return (
-          <>
-            <div
-              className={`${curtainContentState ? "my-2" : "card-animation"}`}
-            >
-              <CardContent />
+              <CardContent key={content.ID} dataId={content.ID} />
             </div>
           </>
         );
@@ -224,7 +212,7 @@ function PortofolioProt() {
               lightMode ? "text-DarkBlueText" : ""
             }`}
           >
-            <h1 className={`text-center`}>Portofolio</h1>
+            <h1 className={`text-center text-3xl tracking-wide ${lightMode?'':'text-LightPink'}`}>PORTOFOLIO</h1>
             <div className={`text-center`}>
               <button
                 className={`text-center mx-3 font-bold ${
@@ -309,7 +297,7 @@ function PortofolioProt() {
                   <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
                 </svg>
               </div>
-              <Footer isMobile={isMobile} />
+              <Footer isMobile={isMobile} lighMode={lightMode}/>
             </div>
           </div>
         </div>

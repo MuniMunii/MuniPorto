@@ -39,7 +39,7 @@ class PageNormal extends React.Component {
   }
   render() {
     const { showMenu, isLandscape, isMobile,lightMode} = this.state;
-    const { content} = this.props;
+    const { content } = this.props;
     return (
       <>
         <div

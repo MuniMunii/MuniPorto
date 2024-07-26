@@ -10,7 +10,6 @@ import {
 } from "react-router-dom";
 import Footer from "../component/Footer";
 import { TypeAnimation } from "react-type-animation";
-
 class Home extends React.Component {
   constructor() {
     super();
@@ -28,11 +27,11 @@ class Home extends React.Component {
                 lightMode ? "text-DarkBlueText" : ""
               }`}
             >
-              <h1 className="text-h1Xl font-bolder">Greetings there!</h1>
-              <h1 className="text-h1Med font-bold">I'am Ramzi.</h1>
-              <p className="font-bold">
-                I'm just a person who having a strong
-                passion in Progrraming especially Web developments. Lets read more <span><NavLink to='/profile' className={`hover:underline ${lightMode?'text-DarkMossGreen':'text-LightPink'}`}>about me</NavLink></span>. I have a solid
+              <h1 className={`text-h1Xl font-bolder ${lightMode?'text-DarkBlueText':'text-Pink300'}`}>Greetings there!</h1>
+              <h1 className={`text-h1Med font-bold`}>I'am <TypeAnimation sequence={['Ramzi.']} speed={400} repeat={1} cursor={true}/></h1>
+              <p className={`font-bold ${lightMode?'text-DarkBlueText':''}`}>
+                I'm just a person who having a strong 
+                passion in Programing especially in Web developments. Lets read more <span><NavLink to='/profile' className={`hover:underline ${lightMode?'text-DarkMossGreen':'text-LightPink'}`}>about me</NavLink></span>. I have a solid
                 background in HTML, CSS, and JavaScript. I like to keep up with
                 the newest developments in website like React and among other
                 technologies to make sure my <span><NavLink to="/portofolio" className={`hover:underline ${lightMode?'text-DarkMossGreen':'text-LightPink'}`}>Project</NavLink></span> is constantly
@@ -67,7 +66,7 @@ class Home extends React.Component {
                   <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
                 </svg>
               </div>
-              <Footer isMobile={isMobile} />
+              <Footer isMobile={isMobile} lightMode={lightMode}/>
             </div>
           </div>
         </>

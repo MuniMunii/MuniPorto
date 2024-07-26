@@ -10,19 +10,19 @@ class Footer extends React.Component {
     const { isMobile } = this.props;
     function FooterComp(){
       return (
-        <div className={`${isMobile?'absolute-logo-list':'flex flex-row'} mt-6 w-fit`}>
+        <div className={`mt-6 w-fit ${isMobile?'absolute-logo-list':'flex flex-row'} `}>
           <div className="logo-div">
-            <a href="#" className="logo-link">
+            <a href="#" className={`${isMobile?'text-LightPink':'text-DarkBlueText hover:text-LightPink ease-in duration-TwoMilliSecond'} no-underline text-[24px] opacity-100`}>
               <i className="fa fa-instagram" aria-hidden="true"></i>
             </a>
           </div>
           <div className="logo-div">
-            <a href="#" className="logo-link">
+            <a href="#" className={`${isMobile?'text-LightPink':'text-DarkBlueText hover:text-LightPink ease-in duration-TwoMilliSecond'} no-underline text-[24px] opacity-100 mx-4`}>
               <i className="fa fa-linkedin" aria-hidden="true"></i>
             </a>
           </div>
           <div className="logo-div">
-            <a href="#" className="logo-link">
+            <a href="#" className={`${isMobile?'text-LightPink':'text-DarkBlueText hover:text-LightPink ease-in duration-TwoMilliSecond'} no-underline text-[24px] opacity-100`}>
               <i className="fa fa-github" aria-hidden="true"></i>
             </a>
           </div>

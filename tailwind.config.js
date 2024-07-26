@@ -34,7 +34,7 @@ module.exports = {
       'SteelBlue':'#3E7CB1',
       'Platinum':'#DFE0E2',
       'White':'rgb(255, 255, 255)',
-      'Onyx':'3393E41'
+      'Onyx':'#393E41'
     },
     fontFamily:{
       sans:['Montserrat','sans-serif'],

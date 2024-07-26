@@ -19,7 +19,7 @@
     z-index: 1;
     opacity: 0;
     transition: opacity 300ms ease-in-out;
-    background: linear-gradient(rgba(0, 0, 0, 0.1) 10%, rgba(0, 0, 0, 0.986) 60%);
+    background: linear-gradient(rgba(0, 0, 0, 0.048) 10%, rgba(0, 0, 0, 0.986) 70%);
 }
 .content-porto:hover::after{
     opacity: 0.3;
