@@ -40,4 +40,8 @@ const myData=[
         genre:'project'
     },
 ]
+const test={theme: [
+    { id: 'theme1-Data1', name: 'Blog' },
+    { id: 'theme2-Data1', name: 'self-improvement' }
+  ]}
 module.exports={myData}

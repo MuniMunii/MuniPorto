@@ -54,7 +54,7 @@ class Profile extends React.Component {
                         2021
                       </p>
                       <p className="list-text animate-fadeIn">
-                        This was my first year when i learning how to code and
+                        This was my first year when i learn how to code and
                         interested in programming, By the way i intrested on
                         programming because my brother recommended me to join
                         Bootcamp.{" "}
@@ -120,8 +120,8 @@ class Profile extends React.Component {
                         Framework i was excited at first because i really like
                         anything about Web programming but it was a little bit
                         hard for me but i still completed this with a good grade
-                        and in this year of my college i learning about
-                        Databases like mySQL, i learning about Management and
+                        and in this year of my college i learned about
+                        Databases like mySQL, and i learned about Management and
                         Statistic too because my Degree is about bussines mixed
                         with IT Technologies.
                       </p>
@@ -149,7 +149,7 @@ class Profile extends React.Component {
                       </p>
                       <p className="list-text">
                         Always learning about web deveploment,database and
-                        reading whatever what i find interesting.
+                        read whatever what i find interesting.
                       </p>
                     </li>
                   </ul>
