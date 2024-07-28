@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/MuniPorto/static/css/main.7088ef10.css",
-    "main.js": "/MuniPorto/static/js/main.1b2bedd6.js",
+    "main.js": "/MuniPorto/static/js/main.3b4fa623.js",
     "static/js/453.64e09cc1.chunk.js": "/MuniPorto/static/js/453.64e09cc1.chunk.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/MuniPorto/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/Logo-Muni-Porto.png": "/MuniPorto/static/media/Logo-Muni-Porto.2afc192398919b2b96b1.png",
@@ -14,11 +14,11 @@
     "index.html": "/MuniPorto/index.html",
     "static/media/index.cjs": "/MuniPorto/static/media/index.cd351d7c31d0d3fccf96.cjs",
     "main.7088ef10.css.map": "/MuniPorto/static/css/main.7088ef10.css.map",
-    "main.1b2bedd6.js.map": "/MuniPorto/static/js/main.1b2bedd6.js.map",
+    "main.3b4fa623.js.map": "/MuniPorto/static/js/main.3b4fa623.js.map",
     "453.64e09cc1.chunk.js.map": "/MuniPorto/static/js/453.64e09cc1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7088ef10.css",
-    "static/js/main.1b2bedd6.js"
+    "static/js/main.3b4fa623.js"
   ]
 }
