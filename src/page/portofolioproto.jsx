@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/root.css";
 import Footer from "../component/Footer";
 import { NavLink } from "react-router-dom";
@@ -7,6 +7,7 @@ import { myData } from "../utils/portoData";
 import "../styles/portofolio.css";
 import "../lib/font-awesome-4.7.0/css/font-awesome.min.css";
 import { v4 as uuidv4 } from "uuid";
+import ListComp from "../component/listTest";
 function PortofolioProt() {
   const GENRE = {
     ALL: "all",
@@ -26,9 +27,11 @@ function PortofolioProt() {
   function PortoData({ lightMode }) {
     function CurtainContent({ content }) {
       const [animationState, setAnimation] = useState(false);
+      useEffect(()=>{
       setTimeout(() => {
         setAnimation(true);
       }, 100);
+      },[]);
       function closeNav() {
         setCurtainState(false);
       }
@@ -37,12 +40,12 @@ function PortofolioProt() {
           <>
             {skills.map((skill, index) => (
                 <li
-                key={`list-curtain-${index}-${skill}`}
+                key={`list-curtain-${index}-${skill.id}`}
                 className={`py-[4px] px-3 m-1 rounded-md ${
                   lightMode ? "bg-Pink600 text-[#000000]" : "bg-Platinum "
                 }`}
               >
-                {skill}
+                {skill.name}
               </li>
               )
             )};
@@ -57,8 +60,8 @@ function PortofolioProt() {
             onClick={closeNav}
           ></div>
           <div
-            className={`z-[9999] absolute overflow-scroll overflow-x-hidden right-0 top-0 pointer-events-auto bg-RaisinBlack w-0 h-full Phone:w-full ${
-              animationState ? "curtain-content" : ""
+            className={`z-[9999] absolute overflow-scroll overflow-x-hidden right-0 top-0 pointer-events-auto bg-RaisinBlack w-0 h-full  ${
+              animationState ? "curtain-content Phone:w-full" : ""
             } ${lightMode ? "bg-[#3f63c7]" : ""}`}
           >
             <div className={`w-[95%] mx-auto `}>
@@ -155,35 +158,11 @@ function PortofolioProt() {
       );
     }
     return myData.map((content) => {
-      function SkillSet({ skills }) {
-        useEffect(()=>{
-          const getTest=document.querySelectorAll('.text')
-        getTest.forEach(e=>{
-          console.log(uuidv4())
-        })
-        },[skills])
-        
-        return (
-          <>
-            {skills.map((skill, index) => (
-              <li
-                key={`${uuidv4()}-${skill}`}
-                className={`text Phone:px-[10px] text-[11px] Phone:py-[4px] desktop:px-[12px] dekstop:py-[5px] rounded-md mx-[2px] my-[3px] ${
-                  lightMode
-                    ? "bg-Onyx text-Pink100"
-                    : "bg-Platinum text-DarkBlueText"
-                }`}
-              >
-                {skill}
-              </li>
-            ))}
-          </>
-        );
-      }
       function CardContent() {
         return (
           <>
             <div
+            key={uuidv4}
               className={`content-porto relative w-[90%] h-[15em] mx-auto px-[1.4em] py-[1.2em] flex items-end rounded-lg border-b-RaisinBlack border-[2px] overflow-hidden bg-no-repeat cursor-pointer break-inside-avoid shadow-[0_3px_10px_rgb(0,0,0,0.2)]`}
               onClick={() => changeCurtainContentState(content)}
             >
@@ -201,8 +180,9 @@ function PortofolioProt() {
                 </p>
                 <ul className="flex flex-wrap font-light">
                   {
-                    <SkillSet
-                      skills={content.theme}
+                    <ListComp
+                    lightMode={lightMode}
+                    skills={content.theme}
                     />
                   }
                 </ul>
@@ -211,23 +191,20 @@ function PortofolioProt() {
             {curtainContentState && selectedContent !== null && (
               <CurtainContent
                 content={selectedContent}
-                id={content.ID}
-                lightMode={lightMode}
               />
             )}
           </>
         );
       }
-
       const GENRE_FILTER =
         genreState === GENRE.ALL ? myData.length : content.genre === genreState;
-      if (GENRE_FILTER) {
+      if (GENRE_FILTER>=1) {
         return (
           <>
             <div
               className={`${curtainContentState ? "my-2" : "card-animation"}`}
             >
-              <CardContent key={`${uuidv4()}-${content.ID}`} />
+              <CardContent/>
             </div>
           </>
         );
@@ -317,7 +294,7 @@ function PortofolioProt() {
                 } flex mt-4 items-center`}
               >
                 <NavLink
-                  to="/profile"
+                  to="/test"
                   className={`flex no-underline bg-no-repeat bg-borderBottom bg-centerBott transition-bg_Size duration-TwoMilliSecond ease-in-out hover:bg-borderBottomFull  ${
                     lightMode
                       ? "text-DarkBlueText hover:bg-gradient-to-r from-DarkMossGreen to-DarkBlueText"
