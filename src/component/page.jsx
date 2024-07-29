@@ -9,7 +9,7 @@ class PageNormal extends React.Component {
       showMenu: true,
       isMobile: true,
       isLandscape: false,
-      lightMode:localStorage.getItem('theme')==="light-theme"
+      lightMode:localStorage.getItem('theme')==="light-theme"||"light-theme"
     };
     this.resizeScreen = this.resizeScreen.bind(this);
     this.sycnWithTheme=this.sycnWithTheme.bind(this)

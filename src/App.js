@@ -14,10 +14,9 @@ function App() {
   },[])
   return (
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/portofolio" element={<PortofolioProt />} />
-        <Route path="/test" element={<TestList/>} />
+        <Route path={`/`} element={<Home />} />
+        <Route path={`/profile`} element={<Profile />} />
+        <Route path={`/portofolio`} element={<PortofolioProt />} />
       </Routes>
   );
 }

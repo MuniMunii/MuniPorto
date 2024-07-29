@@ -9,6 +9,7 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+
     };
     this.HandleResize = this.HandleResize.bind(this);
     this.ShowNavList = this.ShowNavList.bind(this);
@@ -103,7 +104,12 @@ class NavBar extends React.Component {
         toggleChangeForBug.classList.toggle('hidden');
       }
     }
-    if(localStorage.getItem('theme')==='dark-theme'){
+  //   this.setState(({lightMode})=>({
+  //     lightMode:localStorage.getItem('theme')===lightMode?'dark-theme':'light-theme'
+  //   }),
+  // ()=>{localStorage.setItem("theme",this.state.lightMode)})
+  const CURRENT_THEME=localStorage.getItem('theme')
+    if(CURRENT_THEME==='dark-theme'){
       setThemes('light-theme')
       console.log("light-theme");
     }else{
