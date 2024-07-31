@@ -5,9 +5,8 @@ import Home from './page/home';
 import{ BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Profile from './page/profile';
 import { keepThemes } from './utils/themes';
-import { useEffect } from 'react';
+import { useEffect,useSyncExternalStore } from 'react';
 import PortofolioProt from './page/portofolioproto';
-import TestList from './component/listTest';
 function App() {
   useEffect(()=>{
     keepThemes()

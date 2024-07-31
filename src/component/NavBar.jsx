@@ -104,17 +104,11 @@ class NavBar extends React.Component {
         toggleChangeForBug.classList.toggle('hidden');
       }
     }
-  //   this.setState(({lightMode})=>({
-  //     lightMode:localStorage.getItem('theme')===lightMode?'dark-theme':'light-theme'
-  //   }),
-  // ()=>{localStorage.setItem("theme",this.state.lightMode)})
   const CURRENT_THEME=localStorage.getItem('theme')
     if(CURRENT_THEME==='dark-theme'){
       setThemes('light-theme')
-      console.log("light-theme");
     }else{
       setThemes('dark-theme')
-      console.log("dark-theme");
     }
   }
   ShowNavList() {
@@ -170,7 +164,7 @@ class NavBar extends React.Component {
     }
     return (
       <>
-        <div className="flex justify-center align-middle">
+        <div className="flex justify-center align-middle ">
           <div className="navbar-class w-med Phone:text/[20px] desktop:text-[24px]">
             
             <p

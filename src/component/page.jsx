@@ -1,64 +1,63 @@
-import React from "react";
-import Footer from "./Footer";
+import React, { useEffect, useState, useSyncExternalStore } from "react";
 import NavBar from "./NavBar";
-
-class PageNormal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showMenu: true,
-      isMobile: true,
-      isLandscape: false,
-      lightMode:localStorage.getItem('theme')==="light-theme"||"light-theme"
-    };
-    this.resizeScreen = this.resizeScreen.bind(this);
-    this.sycnWithTheme=this.sycnWithTheme.bind(this)
+function PageComp({ content }) {
+  const [isMobile, setIsMobile] = useState(true);
+  const [showMenu, setShowMenu] = useState(true);
+  const [isLandscape, setLandscape] = useState(false);
+  const [lightMode, setLightMode] = useState(
+    localStorage.getItem("theme") === "light-theme"
+  );
+  function syncWithTheme() {
+    setLightMode(localStorage.getItem("theme") === "light-theme");
   }
-  componentDidMount() {
-    this.resizeScreen();
-    window.addEventListener("resize", this.resizeScreen);
-    window.addEventListener("storage", this.sycnWithTheme);
-  }
-  componentWillUnmount() {
-    this.resizeScreen();
-    window.removeEventListener("resize", this.resizeScreen);
-    window.removeEventListener("storage", this.sycnWithTheme);
-  }
-  sycnWithTheme=()=>{
-    this.setState({
-        lightMode:localStorage.getItem('theme')==="light-theme"
-    })
-  }
-  resizeScreen() {
+  function resizeScreen() {
     const WindowScreenMobile = window.matchMedia("(max-width:700px)").matches;
-    const IsLandscapes = window.matchMedia("(orientation:landscape)").matches;
-    this.setState({ isLandscape: IsLandscapes });
-    this.setState({ isMobile: WindowScreenMobile });
-    // kalo isMobile false showmenu akan jadi false
-    this.setState({ showMenu: !WindowScreenMobile });
+    const IsLandscapesWindow = window.matchMedia(
+      "(orientation:landscape)"
+    ).matches;
+    setLandscape(IsLandscapesWindow);
+    setIsMobile(WindowScreenMobile);
+    setShowMenu(!WindowScreenMobile);
   }
-  render() {
-    const { showMenu, isLandscape, isMobile,lightMode} = this.state;
-    const { content } = this.props;
-    return (
-      <>
+  useEffect(() => {
+    const initialTheme = localStorage.getItem("theme");
+    if (initialTheme) {
+      document.documentElement.className = initialTheme;
+      document.body.className =
+        initialTheme === "light-theme" ? "bg-LightModeBody" : "bg-DarkModeBody";
+    }
+    resizeScreen();
+    window.addEventListener("resize", resizeScreen);
+    window.addEventListener("storage", syncWithTheme);
+    return () => {
+      window.removeEventListener("resize", resizeScreen);
+      window.removeEventListener("storage", syncWithTheme);
+    };
+  }, []);
+  useEffect(() => {
+    const currentTheme = lightMode ? "light-theme" : "dark-theme";
+    document.documentElement.className = currentTheme;
+    document.body.className = lightMode
+      ? "bg-LightModeBody"
+      : "bg-DarkModeBody";
+  }, [lightMode]);
+  return (
+    <>
+      <div
+        className={`${
+          showMenu ? " flex flex-row align-middle" : "column-auto "
+        } fullscreen`}
+      >
         <div
-          className={`${
-            showMenu ? " flex flex-row align-middle" : "column-auto "
-          } fullscreen`}
+          className={`container-content overflow-auto h-fit ${
+            showMenu ? "row" : "column"
+          }`}
         >
-          <div
-            className={`container-content overflow-auto h-fit ${
-              showMenu ? "row" : "column"
-            }`}
-          >
-            <NavBar showMenu={showMenu} lightMode={lightMode}/>
-            {content({ showMenu, isMobile, isLandscape, lightMode })}
-          </div>
+          <NavBar showMenu={showMenu} lightMode={lightMode} />
+          {content({ showMenu, isMobile, isLandscape, lightMode })}
         </div>
-      </>
-    );
-  }
+      </div>
+    </>
+  );
 }
-
-export default PageNormal;
+export default PageComp;

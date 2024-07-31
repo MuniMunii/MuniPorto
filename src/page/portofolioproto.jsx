@@ -8,7 +8,9 @@ import "../styles/portofolio.css";
 import "../lib/font-awesome-4.7.0/css/font-awesome.min.css";
 import { v4 as uuidv4 } from "uuid";
 import ListComp from "../component/listTest";
+
 function PortofolioProt() {
+
   const GENRE = {
     ALL: "all",
     PROJECT: "project",
@@ -234,15 +236,15 @@ function PortofolioProt() {
               <button
                 className={`text-center mx-3 font-bold ${
                   lightMode
-                    ? "text-DarkBlueText border-b-RaisinBlack "
+                    ? "text-DarkBlueText border-b-RaisinBlack " 
                     : "text-Pink100 border-b-DarkPink "
                 } ${
                   genreState === GENRE.ALL && !lightMode
-                    ? "pb-[2px] border-b-2 bg-gradient-to-tr from-LightPink to-DarkPink bg-clip-text text-[transparent]"
+                    ? "pb-[2px] border-b-2 bg-DarkActiveModeText bg-clip-text text-[transparent]"
                     : ""
                 } ${
                   genreState === GENRE.ALL && lightMode
-                    ? "pb-[2px] border-b-2 bg-gradient-to-tr from-DarkMossGreen to-DarkBlueText bg-clip-text text-[transparent]"
+                    ? "pb-[2px] border-b-2 bg-LightActiveModeText bg-clip-text text-[transparent]"
                     : ""
                 }`}
                 onClick={() => changeGenre(GENRE.ALL)}
@@ -256,11 +258,11 @@ function PortofolioProt() {
                     : "text-Pink100 border-b-DarkPink "
                 }${
                   genreState === GENRE.MYREAD && !lightMode
-                    ? "pb-[2px] border-b-2 bg-gradient-to-tr from-LightPink to-DarkPink bg-clip-text text-[transparent]"
+                    ? "pb-[2px] border-b-2 bg-DarkActiveModeText bg-clip-text text-[transparent]"
                     : ""
                 } ${
                   genreState === GENRE.MYREAD && lightMode
-                    ? "pb-[2px] border-b-2 bg-gradient-to-tr from-DarkMossGreen to-DarkBlueText bg-clip-text text-[transparent]"
+                    ? "pb-[2px] border-b-2 bg-LightActiveModeText bg-clip-text text-[transparent]"
                     : ""
                 }`}
                 onClick={() => changeGenre(GENRE.MYREAD)}
@@ -274,11 +276,11 @@ function PortofolioProt() {
                     : "text-Pink100 border-b-DarkPink "
                 }${
                   genreState === GENRE.PROJECT && !lightMode
-                    ? "pb-[2px] border-b-2 bg-gradient-to-tr from-LightPink to-DarkPink bg-clip-text text-[transparent]"
+                    ? "pb-[2px] border-b-2 bg-DarkActiveModeText bg-clip-text text-[transparent] "
                     : ""
                 } ${
                   genreState === GENRE.PROJECT && lightMode
-                    ? "pb-[2px] border-b-2 bg-gradient-to-tr from-DarkMossGreen to-DarkBlueText bg-clip-text text-[transparent]"
+                    ? "pb-[2px] border-b-2 bg-LightActiveModeText bg-clip-text text-[transparent]"
                     : ""
                 }`}
                 onClick={() => changeGenre(GENRE.PROJECT)}

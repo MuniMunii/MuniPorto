@@ -2,6 +2,10 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    backgroundImage:{
+      'LightModeBody':'linear-gradient(90deg,var(--Pink600),var(--Pink200));',
+      'DarkModeBody':'linear-gradient(90deg,var(--DarkBlue),var(--DarkMossGreen))',
+    },
     transitionProperty:{
       bg_Size:'background-size',
     },
@@ -30,6 +34,7 @@ module.exports = {
       'Pink700':'#ff7096',
       'Pink800':'#ff7096',
       'DarkBlueText':'#041325',
+      'DarkBlue':'#1a3657',
       'PastelBlue':'#BBDEE4',
       'SteelBlue':'#3E7CB1',
       'Platinum':'#DFE0E2',
@@ -47,6 +52,10 @@ module.exports = {
       bolder:'700'
     },
     extend: {
+      backgroundImage: (theme) => ({
+        'LightActiveModeText': `linear-gradient(to right, ${theme('colors.DarkMossGreen')}, ${theme('colors.DarkBlueText')})`,
+        'DarkActiveModeText': `linear-gradient(to right, ${theme('colors.LightPink')}, ${theme('colors.DarkPink')})`,
+      }),
       screens:{
         Phone:{'max':'576px'},
         desktop:{'min':'576px'},
