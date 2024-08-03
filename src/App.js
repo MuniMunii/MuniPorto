@@ -7,6 +7,7 @@ import Profile from './page/profile';
 import { keepThemes } from './utils/themes';
 import { useEffect,useSyncExternalStore } from 'react';
 import PortofolioProt from './page/portofolioproto';
+import ResumeComp from './page/resume';
 function App() {
   useEffect(()=>{
     keepThemes()
@@ -16,6 +17,7 @@ function App() {
         <Route path={`/`} element={<Home />} />
         <Route path={`/profile`} element={<Profile />} />
         <Route path={`/portofolio`} element={<PortofolioProt />} />
+        <Route path={`/resume`} element={<ResumeComp />} />
       </Routes>
   );
 }

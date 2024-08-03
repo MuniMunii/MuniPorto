@@ -264,15 +264,20 @@ class Profile extends React.Component {
                   </ul>
                 </div>
                 <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                  className={`${showMenu ? "" : "margin-navlogo"} mt-4`}
+                className={`${
+                  showMenu ? "" : "margin-navlogo"
+                } flex mt-3 items-center`}
+              >
+                <NavLink
+                  to="/portofolio"
+                  className={`flex no-underline bg-no-repeat bg-borderBottom bg-centerBott transition-bg_Size duration-TwoMilliSecond ease-in-out hover:bg-borderBottomFull  ${
+                    lightMode
+                      ? "text-DarkBlueText hover:bg-DarkModeBody"
+                      : "text-LightPink hover:bg-LightModeBody"
+                  }`}
                 >
-                  <NavLink to="/portofolio" className={`flex no-underline bg-no-repeat bg-borderBottom bg-centerBott transition-bg_Size duration-TwoMilliSecond ease-in-out hover:bg-borderBottomFull  ${lightMode?"text-DarkBlueText hover:bg-gradient-to-r from-DarkMossGreen to-DarkBlueText":"text-LightPink hover:bg-gradient-to-r from-LightPink to-DarkPink"}`}>
-                    Go to Portofolio
-                  </NavLink>
+                  Go to Portofolio
+                </NavLink>
                   <svg
                     className="arrow-right"
                     width="24"

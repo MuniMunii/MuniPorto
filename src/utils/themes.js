@@ -1,7 +1,7 @@
 function setThemes(namethemes){
     localStorage.setItem('theme',namethemes)
     document.documentElement.className=namethemes
-    document.body.className=namethemes==='light-theme'?'bg-LightModeBody':'bg-DarkModeBody'
+    document.body.className=namethemes !=='light-theme'?'bg-DarkModeBody':'bg-LightModeBody '
     window.dispatchEvent(new Event("storage"))
 }
 function keepThemes(){

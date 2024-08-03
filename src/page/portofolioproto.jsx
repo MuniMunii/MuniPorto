@@ -290,17 +290,17 @@ function PortofolioProt() {
             </div>
             <PortoData lightMode={lightMode} />
             <div className="ml-[34px]">
-              <div
+            <div
                 className={`${
                   showMenu ? "" : "margin-navlogo"
-                } flex mt-4 items-center`}
+                } flex mt-1 items-center`}
               >
                 <NavLink
-                  to="/test"
+                  to="/resume"
                   className={`flex no-underline bg-no-repeat bg-borderBottom bg-centerBott transition-bg_Size duration-TwoMilliSecond ease-in-out hover:bg-borderBottomFull  ${
                     lightMode
-                      ? "text-DarkBlueText hover:bg-gradient-to-r from-DarkMossGreen to-DarkBlueText"
-                      : "text-LightPink hover:bg-gradient-to-r from-LightPink to-DarkPink"
+                      ? "text-DarkBlueText hover:bg-DarkModeBody"
+                      : "text-LightPink hover:bg-LightModeBody"
                   }`}
                 >
                   My Resume

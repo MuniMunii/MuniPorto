@@ -49,8 +49,8 @@ class Home extends React.Component {
                   to="/profile"
                   className={`flex no-underline bg-no-repeat bg-borderBottom bg-centerBott transition-bg_Size duration-TwoMilliSecond ease-in-out hover:bg-borderBottomFull  ${
                     lightMode
-                      ? "text-DarkBlueText hover:bg-gradient-to-r from-DarkMossGreen to-DarkBlueText"
-                      : "text-LightPink hover:bg-gradient-to-r from-LightPink to-DarkPink"
+                      ? "text-DarkBlueText hover:bg-DarkModeBody"
+                      : "text-LightPink hover:bg-LightModeBody"
                   }`}
                 >
                   See More About Me

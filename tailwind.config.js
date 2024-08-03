@@ -8,6 +8,7 @@ module.exports = {
     },
     transitionProperty:{
       bg_Size:'background-size',
+      transform:'transform'
     },
     transitionDuration:{
       TwoMilliSecond:'0.2s'

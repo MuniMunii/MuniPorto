@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useSyncExternalStore } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 function PageComp({ content }) {
   const [isMobile, setIsMobile] = useState(true);
