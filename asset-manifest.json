@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/MuniPorto/static/css/main.ec5e636c.css",
-    "main.js": "/MuniPorto/static/js/main.d69c87f2.js",
+    "main.js": "/MuniPorto/static/js/main.5dcd8075.js",
     "static/js/453.64e09cc1.chunk.js": "/MuniPorto/static/js/453.64e09cc1.chunk.js",
     "static/media/resumepdf.pdf": "/MuniPorto/static/media/resumepdf.b5ff07ac576449616c2d.pdf",
     "static/media/resumepng.png": "/MuniPorto/static/media/resumepng.e2948bc0a3b5247f5bbb.png",
@@ -16,11 +16,11 @@
     "index.html": "/MuniPorto/index.html",
     "static/media/index.cjs": "/MuniPorto/static/media/index.cd351d7c31d0d3fccf96.cjs",
     "main.ec5e636c.css.map": "/MuniPorto/static/css/main.ec5e636c.css.map",
-    "main.d69c87f2.js.map": "/MuniPorto/static/js/main.d69c87f2.js.map",
+    "main.5dcd8075.js.map": "/MuniPorto/static/js/main.5dcd8075.js.map",
     "453.64e09cc1.chunk.js.map": "/MuniPorto/static/js/453.64e09cc1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ec5e636c.css",
-    "static/js/main.d69c87f2.js"
+    "static/js/main.5dcd8075.js"
   ]
 }
