@@ -17,12 +17,12 @@ class Footer extends React.Component {
             </a>
           </div>
           <div className="logo-div">
-            <a href="#" className={`${isMobile?'text-LightPink':'text-DarkBlueText hover:text-LightPink ease-in duration-TwoMilliSecond'} no-underline text-[24px] opacity-100 mx-4`}>
+            <a href="https://www.linkedin.com/in/ramzi-akbar-ramadhan-b8b05a243/" className={`${isMobile?'text-LightPink':'text-DarkBlueText hover:text-LightPink ease-in duration-TwoMilliSecond'} no-underline text-[24px] opacity-100 mx-4`}>
               <i className="fa fa-linkedin" aria-hidden="true"></i>
             </a>
           </div>
           <div className="logo-div">
-            <a href="#" className={`${isMobile?'text-LightPink':'text-DarkBlueText hover:text-LightPink ease-in duration-TwoMilliSecond'} no-underline text-[24px] opacity-100`}>
+            <a href="https://github.com/MuniMunii" className={`${isMobile?'text-LightPink':'text-DarkBlueText hover:text-LightPink ease-in duration-TwoMilliSecond'} no-underline text-[24px] opacity-100`}>
               <i className="fa fa-github" aria-hidden="true"></i>
             </a>
           </div>

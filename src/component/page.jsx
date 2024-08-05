@@ -4,8 +4,9 @@ function PageComp({ content }) {
   const [isMobile, setIsMobile] = useState(true);
   const [showMenu, setShowMenu] = useState(true);
   const [isLandscape, setLandscape] = useState(false);
+  const storedTheme=localStorage.getItem('dark-theme')
   const [lightMode, setLightMode] = useState(
-    localStorage.getItem("theme") === "light-theme"
+    storedTheme
   );
   function syncWithTheme() {
     setLightMode(localStorage.getItem("theme") === "light-theme");
