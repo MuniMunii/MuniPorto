@@ -1,0 +1,24 @@
+.button-animate {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    color: black;
+    transition: color 0.3s ease;
+}
+.button-animate:hover{
+    color: white;
+}
+.button-animate::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: left 0.3s ease;
+    z-index: -1; 
+}
+
+.button-animate:hover::after {
+    left: 0;
+}
