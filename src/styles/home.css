@@ -12,25 +12,11 @@
     width: 85%;
 }
 
-.arrow-right{
-    margin-left: 1rem;
-    animation: forward;
-    animation-duration: 0.5s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
+
 .menu-logo{
     cursor: pointer;
 }
 .home-content{
     display: flex;
     align-items: center;
-}
-@keyframes forward {
-    0%{
-        margin-left: 1rem;
-    }
-    100%{
-        margin-left: 2rem;
-    }
 }

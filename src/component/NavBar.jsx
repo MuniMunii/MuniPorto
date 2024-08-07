@@ -3,13 +3,11 @@ import { useState } from "react";
 import { NavLink, Route, Routes } from "react-router-dom";
 import "../styles/Navbar.css";
 import "../lib/font-awesome-4.7.0/css/font-awesome.min.css";
-import LogoWeb from "../assets/images/Logo-Muni-Porto.png";
 import { setThemes } from "../utils/themes";
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
     };
     this.HandleResize = this.HandleResize.bind(this);
     this.ShowNavList = this.ShowNavList.bind(this);
@@ -24,8 +22,6 @@ class NavBar extends React.Component {
       const StickyClass = document.querySelector(".sticky");
       if (NavlinkElements) {
         MenuElement.addEventListener("click", (event) => {
-          event.stopPropagation();
-          event.preventDefault();
           NavlinkElements.forEach((e) => {
             e.classList.toggle("hide");
           });
@@ -65,7 +61,6 @@ class NavBar extends React.Component {
     const handleClick = (event) => {
       // eslint-disable-next-line no-restricted-globals
       event.stopPropagation();
-      event.preventDefault();
       NavlinkElements.forEach((e) => {
         e.classList.toggle("hide");
       });
@@ -118,7 +113,7 @@ class NavBar extends React.Component {
     });
   }
   render() {
-    const { showMenu,lightMode} = this.props;
+    const { showMenu, lightMode} = this.props;
     function DayLogo(){
       return(
         <>

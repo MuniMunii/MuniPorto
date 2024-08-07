@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
-function PageComp({ content }) {
+import Footer from "./Footer";
+function PageComp({ content ,lightMode }) {
   const [isMobile, setIsMobile] = useState(true);
+  // showMenu True karna waktu production langsung buat Mode Web untuk Pc
+  // showMenu True because when i first made this i was working for pc client first
   const [showMenu, setShowMenu] = useState(true);
   const [isLandscape, setLandscape] = useState(false);
-  const storedTheme=localStorage.getItem('dark-theme')
-  const [lightMode, setLightMode] = useState(
-    storedTheme
-  );
-  function syncWithTheme() {
-    setLightMode(localStorage.getItem("theme") === "light-theme");
-  }
   function resizeScreen() {
     const WindowScreenMobile = window.matchMedia("(max-width:700px)").matches;
     const IsLandscapesWindow = window.matchMedia(
@@ -21,27 +17,12 @@ function PageComp({ content }) {
     setShowMenu(!WindowScreenMobile);
   }
   useEffect(() => {
-    const initialTheme = localStorage.getItem("theme");
-    if (initialTheme) {
-      document.documentElement.className = initialTheme;
-      document.body.className =
-        initialTheme === "light-theme" ? "bg-LightModeBody" : "bg-DarkModeBody";
-    }
     resizeScreen();
     window.addEventListener("resize", resizeScreen);
-    window.addEventListener("storage", syncWithTheme);
     return () => {
       window.removeEventListener("resize", resizeScreen);
-      window.removeEventListener("storage", syncWithTheme);
     };
   }, []);
-  useEffect(() => {
-    const currentTheme = lightMode ? "light-theme" : "dark-theme";
-    document.documentElement.className = currentTheme;
-    document.body.className = lightMode
-      ? "bg-LightModeBody"
-      : "bg-DarkModeBody";
-  }, [lightMode]);
   return (
     <>
       <div
@@ -54,8 +35,8 @@ function PageComp({ content }) {
             showMenu ? "row" : "column"
           }`}
         >
-          <NavBar showMenu={showMenu} lightMode={lightMode} />
-          {content({ showMenu, isMobile, isLandscape, lightMode })}
+          <NavBar showMenu={showMenu} lightMode={lightMode}  />
+          {content({ showMenu, isMobile, isLandscape , lightMode})}
         </div>
       </div>
     </>

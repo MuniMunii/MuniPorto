@@ -1,5 +1,4 @@
 import React from "react";
-import { myData } from "../utils/portoData";
 function ListComp({ skills , lightMode}){
     function SkillSet() {
         return (
