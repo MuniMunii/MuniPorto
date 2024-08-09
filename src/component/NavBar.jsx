@@ -9,13 +9,10 @@ class NavBar extends React.Component {
     super(props);
     this.state = {
     };
-    this.HandleResize = this.HandleResize.bind(this);
     this.ShowNavList = this.ShowNavList.bind(this);
     this.changeThemeMode = this.changeThemeMode.bind(this);
   }
   componentDidMount() {
-    window.addEventListener("resize", this.HandleResize);
-    this.HandleResize();
     const NavlinkElements = document.querySelectorAll(".nav-link");
     const MenuElement = document.querySelector(".menu-bar");
     let NavLinkElementClassWillMount = () => {
@@ -30,16 +27,16 @@ class NavBar extends React.Component {
           const MatchWindow = window.matchMedia("(max-width:700px)");
           const toggleMedia = () => {
             if (MatchWindow.matches) {
-              MenuElement.classList.remove("hide");
+              MenuElement.classList.remove("hidden");
               StickyClass.classList.remove("sticky");
               NavlinkElements.forEach((e) => {
-                e.classList.add("hide");
+                e.classList.add("hidden");
               });
             } else {
-              MenuElement.classList.add("hide");
+              MenuElement.classList.add("hidden");
               StickyClass.classList.add("sticky");
               NavlinkElements.forEach((e) => {
-                e.classList.remove("hide");
+                e.classList.remove("hidden");
               });
             }
           };
@@ -62,7 +59,7 @@ class NavBar extends React.Component {
       // eslint-disable-next-line no-restricted-globals
       event.stopPropagation();
       NavlinkElements.forEach((e) => {
-        e.classList.toggle("hide");
+        e.classList.toggle("hidden");
       });
     };
 
@@ -82,15 +79,6 @@ class NavBar extends React.Component {
     MenuElement.removeEventListener("click", handleClick);
     MatchWindow.removeListener(toggleMedia);
   }
-  HandleResize() {
-    const WindowWidth = window.innerWidth;
-    const isMobile = WindowWidth <= 700;
-    if (isMobile) {
-      this.setState({ isMobile: isMobile, showMenu: false });
-    } else {
-      this.setState({ showMenu: !isMobile });
-    }
-  }
   changeThemeMode(){
     const { showMenu } = this.props;
     if (!showMenu) {
@@ -107,10 +95,13 @@ class NavBar extends React.Component {
     }
   }
   ShowNavList() {
-    const toggleHideElements = document.querySelectorAll(".toggle-hide");
-    toggleHideElements.forEach((element) => {
-      element.classList.toggle("hidden");
-    });
+    const MatchWindow = window.matchMedia("(max-width:700px)");
+    if (MatchWindow.matches) {
+      const toggleHideElements = document.querySelectorAll(".toggle-hide");
+      toggleHideElements.forEach((element) => {
+        element.classList.toggle('hidden')
+      });
+    }
   }
   render() {
     const { showMenu, lightMode} = this.props;
@@ -177,24 +168,50 @@ class NavBar extends React.Component {
                   : "navbar-list relative"
               }`}
             >
-            <button className={`button-theme w-fit toggle-hide mr-4 ${showMenu? "": "hidden"}`} onClick={this.changeThemeMode}>
+            <button className={`toggle-hide button-theme w-fit mr-4 ${showMenu? "": "hidden"}`} onClick={this.changeThemeMode} >
+              
               {lightMode?<DarkLogo/> :<DayLogo/>}
             </button>
               <NavLink
                 to="/"
-                className={`toggle-hide nav-link w-fit h-fit ${showMenu ? "" : "hidden"}  ${lightMode?"text-RaisinBlack dark":'light'}`}
+                className={({ isActive }) => 
+                  `toggle-hide nav-link w-fit h-fit 
+                  ${isActive?'cursor-default pointer-events-none':''}
+                  ${isActive && lightMode ? "bg-LightActiveModeText pb-[1px] border-b-[3px]" : ""} 
+                  ${isActive && !lightMode ? "bg-DarkActiveModeText pb-[1px] border-b-[3px]" : ""}
+                  ${showMenu ? "" : "hidden"}  
+                  ${lightMode ? "text-RaisinBlack dark" : "light"}`
+              }
+                onClick={this.ShowNavList}
+                
               >
                 Home
               </NavLink>
               <NavLink
                 to="/profile"
-                className={`toggle-hide nav-link w-fit h-fit ${showMenu ? "" : "hidden"}  ${lightMode?"text-RaisinBlack dark":'light'}`}
+                className={({ isActive }) => 
+                  `toggle-hide nav-link w-fit h-fit 
+                  ${isActive?'cursor-default pointer-events-none':''}
+                  ${isActive && lightMode ? "bg-LightActiveModeText pb-[1px] border-b-[3px]" : ""} 
+                  ${isActive && !lightMode ? "bg-DarkActiveModeText pb-[1px] border-b-[3px]" : ""}
+                  ${showMenu ? "" : "hidden"}  
+                  ${lightMode ? "text-RaisinBlack dark" : "light"}`
+              }
+                onClick={this.ShowNavList}
               >
                 Profile
               </NavLink>
               <NavLink
                 to="/portofolio"
-                className={`toggle-hide nav-link w-fit h-fit ${showMenu ? "" : "hidden"}  ${lightMode?"text-RaisinBlack dark":'light'}`}
+                className={({ isActive }) => 
+                  `toggle-hide nav-link w-fit h-fit 
+                  ${isActive?'cursor-default pointer-events-none':''}
+                  ${isActive && lightMode ? "bg-LightActiveModeText pb-[1px] border-b-[3px]" : ""} 
+                  ${isActive && !lightMode ? "bg-DarkActiveModeText pb-[1px] border-b-[3px]" : ""}
+                  ${showMenu ? "" : "hidden"}  
+                  ${lightMode ? "text-RaisinBlack dark" : "light"}`
+              }
+                onClick={this.ShowNavList}
               >
                 Portfolio
               </NavLink>

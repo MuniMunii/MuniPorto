@@ -35,7 +35,7 @@ function PageComp({ content ,lightMode }) {
             showMenu ? "row" : "column"
           }`}
         >
-          <NavBar showMenu={showMenu} lightMode={lightMode}  />
+          <NavBar showMenu={showMenu} lightMode={lightMode} isMobile={isMobile}  />
           {content({ showMenu, isMobile, isLandscape , lightMode})}
         </div>
       </div>

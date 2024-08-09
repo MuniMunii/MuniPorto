@@ -14,8 +14,6 @@ function App() {
   const [lightMode, setLightMode] = useState(
     storedTheme==='light-theme'
   );
-  console.log(localStorage.getItem("theme") === 'light-theme');
-  
   function syncWithTheme() {
     // true
     setLightMode(localStorage.getItem("theme") === 'light-theme');
